@@ -1,0 +1,192 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="play_tone" id="{_@L-^.~QzR86KHdzjGd" x="13" y="13">
+    <field name="TONE">C5</field>
+    <next>
+      <block type="play_tone_full" id="QA[8ix@F~YqxDS-yYof[">
+        <field name="TONE">A2</field>
+        <field name="BEAT">Quarter</field>
+        <next>
+          <block type="display_read_x_on_y" id="z*i?O~X2CL_EwFg4/;J)">
+            <field name="DISPLAYER">0</field>
+            <next>
+              <block type="set_mbot_led_color_full" id="pp~-G?(nfvWRlXj-.Msd">
+                <value name="LEFT_COLOUR_MCORE">
+                  <block type="colour_picker" id="S^,~TW(7}NmGPB~[6Lap">
+                    <field name="COLOUR">#ff0000</field>
+                  </block>
+                </value>
+                <value name="RIGHT_COLOUR_MCORE">
+                  <block type="colour_picker" id="o;r8`3AUqYajjSaH]9@^">
+                    <field name="COLOUR">#ff0000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="set_mbot_led_color_rgb" id="DTd!L`ZwDAup!F1,w0ay">
+                    <field name="LED_POSITION"></field>
+                    <value name="COLOUR_R">
+                      <block type="math_number" id="]i62a`XP3+at?2?yvv%]">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                    <value name="COLOUR_G">
+                      <block type="math_number" id="Xd]/[E[SNZ~`{e6rWEmi">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <value name="COLOUR_B">
+                      <block type="math_number" id="5pYdI5MgOq))5hq7g,r0">
+                        <field name="NUM">0</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="stop_mbot_led_color" id="N#t+y!-Pm|HmO`J/G:xG">
+                        <field name="LED_POSITION"></field>
+                        <next>
+                          <block type="set_auriga_led_color" id="6k/YK5`zbZidJb!i}%g*">
+                            <value name="LED_POSITION">
+                              <block type="math_number_list" id="pS?fPuUFaT@AM-8DfQrA">
+                                <field name="NUMBER_LIST">0</field>
+                              </block>
+                            </value>
+                            <value name="COLOUR2">
+                              <block type="colour_picker" id="2RjY!zf9n0YE{qrK^oO6">
+                                <field name="COLOUR">#ff0000</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="set_auriga_led_color_rgb" id="tHk1Q}vVL6oCFu#Xeimg">
+                                <value name="LED_POSITION">
+                                  <block type="math_number_list" id="dpc/~!fN]0uKY`J`vG#-">
+                                    <field name="NUMBER_LIST">0</field>
+                                  </block>
+                                </value>
+                                <value name="COLOUR_R">
+                                  <block type="math_number" id="wyu1I/]ej^5:Pv26_e0r">
+                                    <field name="NUM">255</field>
+                                  </block>
+                                </value>
+                                <value name="COLOUR_G">
+                                  <block type="math_number" id="rvrJpCi,@I9};HBcSIdt">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <value name="COLOUR_B">
+                                  <block type="math_number" id="Ze[A3zKuGZQlhZtT_l+9">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="stop_auriga_led_color" id="x7dwgYa,GOWNq4LU8zyI">
+                                    <value name="LED_POSITION">
+                                      <block type="math_number_list" id="qL#T3go/4A^li@UeX{gF">
+                                        <field name="NUMBER_LIST">0</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="set_led_color_rgb" id="p3p6g[OVW}akPPbx~Yxa" x="388" y="13">
+    <field name="PORT">PORT-6</field>
+    <field name="SLOT">SLOT-1</field>
+    <value name="LED_POSITION">
+      <block type="math_number_list" id="avVG6AZP[RPCfAD|;lHH">
+        <field name="NUMBER_LIST">0</field>
+      </block>
+    </value>
+    <value name="COLOUR_R">
+      <block type="math_number" id="`N]-E^lzrREp~Tvtskz2">
+        <field name="NUM">255</field>
+      </block>
+    </value>
+    <value name="COLOUR_G">
+      <block type="math_number" id="mjrK_3=;S%uJTb_s?+iK">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <value name="COLOUR_B">
+      <block type="math_number" id="W%q6Fz{sof9Y!YdJax8b">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="set_common_led_color" id="Zfj[6/!vCEw#_{hK.dcy">
+        <field name="PORT">PORT-6</field>
+        <field name="SLOT">SLOT-1</field>
+        <value name="LED_POSITION">
+          <block type="math_number_list" id="{54HKkdg/wi%CZBrn7S=">
+            <field name="NUMBER_LIST">0</field>
+          </block>
+        </value>
+        <value name="COLOUR2">
+          <block type="colour_picker" id="K#|WJEXP9cBVr.8U3wao">
+            <field name="COLOUR">#ff0000</field>
+          </block>
+        </value>
+        <next>
+          <block type="stop_common_led_color" id="3#bj!Ao^au4[%WQ@H7DB">
+            <field name="PORT">PORT-6</field>
+            <field name="SLOT">SLOT-1</field>
+            <value name="LED_POSITION">
+              <block type="math_number_list" id="B):?:lt8?6Zn|,.SRH.J">
+                <field name="NUMBER_LIST">0</field>
+              </block>
+            </value>
+            <next>
+              <block type="smartServo_set_led" id="i6J=Z({rBCr_.l5[R58M">
+                <value name="ID">
+                  <block type="math_number" id="}dyMi0a%jO?`spo6_*?K">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="COLOUR">
+                  <block type="colour_picker" id="pHuMObHVJ;=yga[aD/Aj">
+                    <field name="COLOUR">#ff0000</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="smartServo_hand_shake" id="J7A%}v!Pq1w`f^f-yo-(">
+                    <value name="ID">
+                      <block type="math_number" id="H5hH4{tN0fa2)kim6MPV">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="display_serial_display" id="f*.9XUhu]O3i=)x|tM~t">
+                        <field name="PORT">PORT-6</field>
+                        <value name="NUMBER">
+                          <block type="math_number" id=")~mMk3ya-=0?[8AbE[Fm">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="display_shutter" id="6yL{:YsMLDW@*pCO5nXF">
+                            <field name="TYPE">00</field>
+                            <field name="PORT">PORT-6</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

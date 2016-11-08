@@ -1,0 +1,46 @@
+{
+    "en_html_data": {
+        "origin_language_file_path": "../../vendors/blockly/msg/js/en.js",
+        "extend_language_file_path": "../../msg/js/en.js",
+        "block_begin": "Begin",
+        "block_move": "Move",
+        "block_display": "Display",
+        "block_event": "Event",
+        "block_detect": "Detect",
+        "block_math": "Math",
+        "block_control": "Controls"
+    },
+    "hans_html_data": {
+        "origin_language_file_path": "../../vendors/blockly/msg/js/zh-hans.js",
+        "extend_language_file_path": "../../msg/js/zh-hans.js",
+        "block_begin": "起始",
+        "block_move": "移动",
+        "block_display": "展示",
+        "block_event": "事件",
+        "block_detect": "探测",
+        "block_math": "数学",
+        "block_control": "控制"
+    },
+    "hant_html_data": {
+        "origin_language_file_path": "../../vendors/blockly/msg/js/zh-hant.js",
+        "extend_language_file_path": "../../msg/js/zh-hant.js",
+        "block_begin": "起始",
+        "block_move": "移動",
+        "block_display": "展示",
+        "block_event": "事件",
+        "block_detect": "探測",
+        "block_math": "數學",
+        "block_control": "控制"
+    },
+    "ja_html_data": {
+        "origin_language_file_path": "../../vendors/blockly/msg/js/ja.js",
+        "extend_language_file_path": "../../msg/js/ja.js",
+        "block_begin": "開始",
+        "block_move": "動作",
+        "block_display": "表示",
+        "block_event": "イベント",
+        "block_detect": "検知",
+        "block_math": "数学",
+        "block_control": "コントロール"
+    }
+}

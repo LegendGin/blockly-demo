@@ -1,0 +1,147 @@
+/* led panel */
+.mdialog {
+    width: 490px;
+    height: 433px;
+    z-index: 1;
+    outline: none;
+}
+
+.mdialog-head {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 45px;
+    border-bottom: 2px solid #0fa3bf;
+    background: #28c7dd;
+    overflow: hidden;
+    padding: 0px 20px;
+    color: #fff;
+    font-size: 18px;
+    line-height: 45px;
+}
+.mdialog-head .btn {
+    cursor: pointer;
+}
+.mdialog-head .cancel {
+    float: left;
+}
+.mdialog-head .confirm {
+    float: right;
+}
+.led-matrix-wrapper .mdialog-body {
+    height: 400px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative;
+    background: url(../images/led-circle.png) center no-repeat #fff;
+    background-size: 290px 290px;
+}
+
+.led-panel {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    margin-left: -110px;
+    top: 50%;
+    margin-top: -110px;
+    background: transparent!important;
+    outline: none;
+}
+.led {
+    width: 48px;
+    height: 48px;
+    background: #32c4b7;
+    border-radius: 48px;
+    overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+    -webkit-trasition: all .3s ease;
+    -ms-trasition: all .3s ease;
+    -o-trasition: all .3s ease;
+    trasition: all .3s ease;
+}
+.led.active {
+    background: #009d88;
+}
+.modal-dialog {
+  outline: none;
+}
+
+/* led matrix panel */
+.led-matrix {
+  background: #fff;
+  clear: both;
+}
+
+.led-matrix .led-panel {
+  width: 362px;
+  height: 360px;
+  margin-left: -181px;
+  margin-top: -180px;
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+.led-matrix .led-cell {
+  width: 45px;
+  height: 45px;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  float: left;
+  margin: 0px;
+  text-align: center;
+  line-height: 45px;
+  color: transparent;
+}
+
+.led-matrix .led-cell.active {
+  background: #e74c3c;
+}
+
+
+@media screen and (max-device-width:766px)  {
+  .mdialog {
+    width: 300px;
+  }
+
+  .mdialog-head {
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+  }
+
+  .mdialog-body {
+    height: 260px;
+  }
+
+  .led-matrix .led-panel {
+    width: 241px;
+    height: 241px;
+    margin-left: -120px;
+    margin-top: -120px;
+  }
+
+  .led-matrix .led-cell {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* matrix 8*16 */
+
+.matrix-8-16 {
+  width: 640px;
+}
+
+.matrix-8-16 .led-matrix .led-panel {
+  width: 609px;
+    margin-left: -304px;
+    height: 305px;
+    margin-top: -153px;
+}
+
+.matrix-8-16 .led-matrix .led-cell {
+  width: 38px;
+  height: 38px;
+}

@@ -1,0 +1,11 @@
+.name-wrapper, .name-value {
+  display: block;
+}
+
+.neuron-test {
+    display: none;
+}
+
+.menus {
+    display: none;
+}

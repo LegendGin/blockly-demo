@@ -1,0 +1,8 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="colour_picker" id="GbV^qVRMej9q*-8+zZ/i" x="-62" y="13">
+    <field name="COLOUR">#ff0000</field>
+  </block>
+  <block type="colour_random" id="(W5BhngpT}C?I4sXux?{" x="-62" y="63"></block>
+  <block type="colour_rgb" id="ZcP5!)8L2:/Jf!wC3?%]" x="-62" y="113"></block>
+  <block type="colour_blend" id="T^{9bt*e5HJ;GECMV5-x" x="-62" y="213"></block>
+</xml>

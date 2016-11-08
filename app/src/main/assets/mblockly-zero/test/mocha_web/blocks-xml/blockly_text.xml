@@ -1,0 +1,36 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="text" id="Pi;NA.QQ%WP0w8k*!*tf" x="-62" y="13">
+    <field name="TEXT"></field>
+  </block>
+  <block type="text_join" id="{C(%6+MHt3]1HSd]c)@;" x="-62" y="63">
+    <mutation items="2"></mutation>
+  </block>
+  <block type="text_append" id="h!fvD;NJyl?NOTqN]62E" x="-62" y="138">
+    <field name="VAR">item</field>
+  </block>
+  <block type="text_length" id="0qw=b#uz-oEC+2ymSf8S" x="-62" y="188"></block>
+  <block type="text_isEmpty" id="Q^dcfQ4zYQwdB4MNN?sd" x="-62" y="238"></block>
+  <block type="text_indexOf" id="hqW#r+m9^8R5H8yI-3cn" x="-62" y="288">
+    <field name="END">FIRST</field>
+  </block>
+  <block type="text_charAt" id="Ugk)Zf{{H*ttvory%q]E" x="-62" y="338">
+    <mutation at="true"></mutation>
+    <field name="WHERE">FROM_START</field>
+  </block>
+  <block type="text_getSubstring" id="2{*@6oDeEm,Sv{Igm3%o" x="-62" y="388">
+    <mutation at1="true" at2="true"></mutation>
+    <field name="WHERE1">FROM_START</field>
+    <field name="WHERE2">FROM_START</field>
+  </block>
+  <block type="text_changeCase" id="YYS-W|K2)vOUF4voO*hp" x="-62" y="438">
+    <field name="CASE">UPPERCASE</field>
+  </block>
+  <block type="text_trim" id="=1^Z/pHMMKl~=.WjaZz_" x="-62" y="488">
+    <field name="MODE">BOTH</field>
+  </block>
+  <block type="text_print" id="%81k,gv|2t^V]Ijn#jv2" x="-62" y="538"></block>
+  <block type="text_prompt_ext" id="`O~I]TDW%.cJ76P1asAN" x="-62" y="588">
+    <mutation type="TEXT"></mutation>
+    <field name="TYPE">TEXT</field>
+  </block>
+</xml>

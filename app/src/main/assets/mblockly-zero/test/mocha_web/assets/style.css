@@ -1,0 +1,56 @@
+body {
+    padding: 10px;
+}
+.tip {
+    margin: 20px 0px;
+    min-width: 300px;
+    max-width: 700px;
+    padding: 10px 30px;
+    font-size: 14px;
+    font-family: '微软雅黑', sans-serif;
+    line-height: 1.5em;
+    // border: 1px solid #ddd;
+}
+
+.tip .links a {
+    display: block;
+    width: 180px;
+    text-decoration: none;
+}
+
+.tip .links a:hover {
+    text-decoration: underline;
+}
+
+/* stats */
+.test-stats {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 66.3%;
+    height: 169px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.test-stats button {
+    // display: inline-block;
+    // margin: 20px;
+}
+
+.current-block-category {
+    height: 60px;
+    font-size: 30px;
+    line-height: 2em;
+}
+
+.active {
+    background: yellow!important;
+}
+
+.btn-begin-test {
+    font-size: 30px;
+    display: inline-block;
+    width: 100px;
+    height: 45px!important;
+}

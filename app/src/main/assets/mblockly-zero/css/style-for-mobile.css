@@ -1,0 +1,197 @@
+/*----------------------
+  for mobile
+-----------------------*/
+/* 更好的兼容请用：max-width，而不是max-device-width */
+@media screen and (max-width: 766px)  {
+    #widgets {
+      height: 44px;
+      box-shadow: 0 0px #0599d9;
+    }
+
+    #widgets::after {
+      font-size: 0.5rem;
+      content: " ";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      color: #0599d9;
+      border-bottom: 1px solid #0599d9;
+      transform-origin: 0 100%;
+      transform: scaleY(0.7);
+      z-index: 1;
+  }
+
+    #board-wrapper {
+      margin-top: 44px;
+    }
+
+    #wrapper {
+      width: 286px;
+      height: 40px;
+      margin-top: -2px;
+    }
+    #viewport {
+      margin-top: 2px;
+      height: 40px;
+      width: 303px;
+    }
+
+    #viewport .arrow {
+      width: 24px;
+      height: 26px;
+      top: 5px;
+    }
+
+    #viewport .arrow-left {
+      left: -28px;
+    }
+    #viewport .arrow-right {
+      right: -25px;
+    }
+
+    #scroller .item {
+        height: 40px;
+        margin: 0 4px;
+        padding: 1px;
+    }
+
+    #scroller .item .img-wrap {
+        width: 80px;
+        height: 40px;
+        padding: 4px;
+    }
+    #scroller .item.onactive {
+        height: 34px;
+        margin-top: 4px;
+        border-radius: 4px;
+    }
+    #scroller .item.onactive .img-wrap {
+        height: 26px;
+        padding: 2px
+    }
+
+    /* name */
+    .name-wrapper, .name-value {
+      display: none!important;
+    }
+
+    #toolboxDiv div/* [role="treeitem"] */ .blocklyTreeRow {
+      padding-top: 7px;
+    }
+    #toolboxDiv div/* [role="treeitem"] */ .blocklyTreeSelected {
+          border-left: 3px solid #26beff!important;
+    }
+
+    .blocklyTreeRoot div/* [role="treeitem"] */ .blocklyTreeRow .blocklyTreeIcon {
+      width: 20px !important;
+      height: 20px !important;
+      margin: 2px 4px 2px 10px;
+      float: left;
+    }
+
+    .blocklyTreeRoot div/* [role="treeitem"] */ .blocklyTreeRow .blocklyTreeLabel {
+        display: inline !important;
+        line-height: 20px !important;
+        transition: all .3s ease;
+        font-size: 0.6em;
+    }
+
+    /* icon */
+    #toolboxDiv div[role="treeitem"]:nth-child(1) .blocklyTreeRow .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-start.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(2) .blocklyTreeRow .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-move.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(3) .blocklyTreeRow .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-display.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(4) .blocklyTreeRow .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-event.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(5) .blocklyTreeRow .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-detect.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(6) .blocklyTreeRow .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-math.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(7) .blocklyTreeRow .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-control.png)!important;
+    }
+
+    /* selected */
+    #toolboxDiv div[role="treeitem"]:nth-child(1) .blocklyTreeSelected .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-start-hover.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(2) .blocklyTreeSelected .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-move-hover.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(3) .blocklyTreeSelected .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-display-hover.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(4) .blocklyTreeSelected .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-event-hover.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(5) .blocklyTreeSelected .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-detect-hover.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(6) .blocklyTreeSelected .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-math-hover.png)!important;
+    }
+    #toolboxDiv div[role="treeitem"]:nth-child(7) .blocklyTreeSelected .blocklyTreeIcon {
+        background-image: url(../images/leftside-icons/phone/icon-control-hover.png)!important;
+    }
+
+    /* leftbar */
+    #menuLeft {
+      width: 83px;
+      top: 0px;
+    }
+    .splitline {
+      left: 83px;
+    }
+
+    /* menus */
+    .menus {
+      display: none!important;
+    }
+
+
+    /* tips: help information */
+    .tips {
+      position: absolute;
+      width: 120px;
+      left: 50%;
+      top: 30%;
+      margin-left: -60px;
+      z-index: 100;
+      padding: 5px;
+      background: #fff;
+      display: none;
+    }
+
+    .tips table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    .tips table tr th,
+    .tips table tr td {
+      border: 1px solid #ddd;
+      padding: 10px 6px;
+    }
+    .neuron-test .table tr th, .neuron-test .table tr td {
+      font-size: 12px;
+    }
+    .tips table tr .item {
+      min-width: 70px;
+    }
+
+
+    /* neuron test */
+    .neuron-test {
+      top: 50px!important;
+    }
+}

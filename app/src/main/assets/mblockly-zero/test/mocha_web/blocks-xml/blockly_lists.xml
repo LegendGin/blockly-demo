@@ -1,0 +1,35 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="lists_create_empty" id="P[@?Fo,!t?h_xILSH,.M" x="-62" y="13"></block>
+  <block type="lists_create_with" id="B-J5Lww@s8QtQ?0!+-((" x="-62" y="63">
+    <mutation items="3"></mutation>
+  </block>
+  <block type="lists_repeat" id="b`-G_Xz!YlI.YI@u#kE6" x="-62" y="163"></block>
+  <block type="lists_length" id="J5bpfu3s]I9bzQ=2QwjA" x="-62" y="213"></block>
+  <block type="lists_isEmpty" id="L]QaRM9/R4YCll`Y)P9`" x="-62" y="263"></block>
+  <block type="lists_indexOf" id="nD-Y-6xpyVpQONV3hHC]" x="-62" y="313">
+    <field name="END">FIRST</field>
+  </block>
+  <block type="lists_getIndex" id="]eo=@m@qd]uqgBZ}6@eK" x="-62" y="363">
+    <mutation statement="false" at="true"></mutation>
+    <field name="MODE">GET</field>
+    <field name="WHERE">FROM_START</field>
+  </block>
+  <block type="lists_setIndex" id="Vjq,jC@YMIEF70Wq2el4" x="-62" y="413">
+    <mutation at="true"></mutation>
+    <field name="MODE">SET</field>
+    <field name="WHERE">FROM_START</field>
+  </block>
+  <block type="lists_getSublist" id="h!MrHUjn0v0FJ725]NK-" x="-62" y="463">
+    <mutation at1="true" at2="true"></mutation>
+    <field name="WHERE1">FROM_START</field>
+    <field name="WHERE2">FROM_START</field>
+  </block>
+  <block type="lists_sort" id="!W8Z+#TnoBqZ#IgO*{Q8" x="-62" y="513">
+    <field name="TYPE">NUMERIC</field>
+    <field name="DIRECTION">1</field>
+  </block>
+  <block type="lists_split" id="Q=/H=-)4W[JoF)B=@zN)" x="-62" y="563">
+    <mutation mode="SPLIT"></mutation>
+    <field name="MODE">SPLIT</field>
+  </block>
+</xml>

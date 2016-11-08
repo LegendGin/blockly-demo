@@ -1,0 +1,55 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="controls_if" id="F2+u!ao`vC*ak^MSg6c|" x="-62" y="13">
+    <next>
+      <block type="controls_if" id="m%suoBTdQ4~Hv[:RLwDe">
+        <mutation else="1"></mutation>
+        <next>
+          <block type="wait" id="r`:*aogEO[O/HRxw[85k">
+            <value name="DELAY">
+              <block type="math_number" id="xEu/A1`fL-i;kH4L:)I:">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="wait_until" id="A9HVIbaU~N49!VA/@o],">
+                <next>
+                  <block type="controls_repeat_forever" id="vxSOMx]4]G+Jb~QV;Wk+">
+                    <next>
+                      <block type="controls_repeat_ext" id="mRo?!87icR84*+4iSc*k">
+                        <value name="TIMES">
+                          <block type="math_number" id="L*~3ck!ar6/P9ATsoZiO">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_for" id="c2mYC21E#6Y7O4P.5y%T">
+                            <field name="VAR">i</field>
+                            <value name="FROM">
+                              <block type="math_number" id="K:^:D;rd(`6{[V`f%9EK">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="TO">
+                              <block type="math_number" id="keq:s]U:D?R#M4}mi!Eu">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <value name="BY">
+                              <block type="math_number" id="r2U~,|JxE?j!m2;U|IE3">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

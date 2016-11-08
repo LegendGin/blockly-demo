@@ -1,0 +1,30 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="tablet_shaked" id="+{}#=6uF.W0=ff9]5WA?" x="12" y="13"></block>
+  <block type="tablet_tilt_lr" id="SyWhGkM6lY^!BDD6q*%G" x="12" y="63">
+    <field name="DIRECTION">LEFT</field>
+  </block>
+  <block type="tablet_tilt_fb" id="_zT4zy,6H9Y8l=Ik!AJi" x="12" y="113">
+    <field name="DIRECTION">FORWARD</field>
+  </block>
+  <block type="event_linefollower_reads" id="M;[#cBe`-+h(W_i3-.fy" x="12" y="163">
+    <field name="VALUE">BLACK_BLACK</field>
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="event_receieve_light" id="2{R4Xa1?J2o{Xa!HDW_f" x="13" y="213">
+    <field name="PORT">PORT-11</field>
+  </block>
+  <block type="event_obstacle_ahead" id="6roh~3%`91fh}l!J#q0i" x="13" y="263">
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="event_noise_around" id="XSnrlix_!KmByn6u4KM)" x="13" y="313">
+    <field name="PORT">PORT-14</field>
+  </block>
+  <block type="event_switch_changed" id=")}vqro`M/^?s]|e)4Jl6" x="13" y="363">
+    <field name="SWITCH">0</field>
+    <field name="STATE">1</field>
+  </block>
+  <block type="event_button_changed" id="iCCOl:YH4b[My.k;V2*L" x="13" y="413">
+    <field name="BUTTON">0</field>
+    <field name="STATE">1</field>
+  </block>
+</xml>

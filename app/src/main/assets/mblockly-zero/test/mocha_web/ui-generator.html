@@ -1,0 +1,640 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MBlockly Mocha Unit Tests</title>
+  <link rel="stylesheet" href="../../css/widget.css">
+  <link rel="stylesheet" href="../../css/mblockly.numberinput.css">
+  <link rel="stylesheet" href="../../css/mblockly.pianoinput.css">
+  <link href="assets/style.css" rel="stylesheet" />
+
+  <!-- blockly core files -->
+    <script src="../../vendors/blockly/blockly_uncompressed.js"></script>
+    <!-- blockly blocks defined -->
+    <script src="../../vendors/blockly/blocks_compressed.js"></script>
+    <script src="../../vendors/blockly/javascript_compressed.js"></script>
+    <script src="../../vendors/acorn_interpreter.js"></script>
+
+    <!-- language -->
+    <script src="../../vendors/blockly/msg/js/en.js"></script>
+    <script src="../../msg/js/en.js"></script>
+
+    <!-- <script src="../../js/common/blockly-extend/core/workspace_svg.js"></script> -->
+    <script src="../../js/common/blockly-extend/core/xml.js"></script>
+    <!-- <script src="../../js/common/blockly-extend/core/toolbox.js"></script> -->
+    <script src="../../js/common/blockly-extend/core/field_textinput.js"></script>
+    <script src="../../js/common/blockly-extend/core/constants.js"></script>
+    <script src="../../js/common/blockly-extend/core/field_dropdown.js"></script>
+    <script src="../../js/common/blockly-extend/core/flyout.js"></script>
+    <script src="../../js/common/blockly-extend/core/basenode.js"></script>
+    <script src="../../js/common/blockly-extend/core/blockly.js"></script>
+    <script src="../../js/common/blockly-extend/core/block_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/block_render_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/utils.js"></script>
+    <!-- <script src="../../js/common/blockly-extend/core/scrollbar.js"></script> -->
+    <script src="../../js/common/blockly-extend/core/widgetdiv.js"></script>
+    <script src="../../js/common/blockly-extend/generators/javascript/variables.js"></script>
+
+    <script src="../../js/common/base.js"></script>
+    <script src="../../js/common/block_keeper.js"></script>
+    <script src="../../js/common/block_color.js"></script>
+    <script src="../../js/common/settings.js"></script>
+    <script src="../../js/makeblockhd/data.js"></script>
+    <script src="../../js/makeblockhd/control.js"></script>
+    <script src="../../js/makeblockhd/whentable.js"></script>
+    <script src="../../js/makeblockhd/hostInterface.js"></script>
+    <script src="../../js/common/runtime.js"></script>
+
+
+    <!-- customized blocks -->
+    <script src="../../js/common/blocks/blocks_control.js"></script>
+    <script src="../../js/common/blocks/blocks_math.js"></script>
+    <script src="../../js/makeblockhd/blocks_start.js"></script>
+    <script src="../../js/makeblockhd/blocks_move.js"></script>
+    <script src="../../js/makeblockhd/blocks_display.js"></script>
+    <script src="../../js/makeblockhd/blocks_event.js"></script>
+    <script src="../../js/makeblockhd/blocks_detect.js"></script>
+    <script src="../../js/webapi/blocks_web_api.js"></script>
+
+    <!-- cmomon blockly widgets -->
+    <script src="../../js/common/blockly-widgets/mblockly.numpadinput.js"></script>
+    <script src="../../js/common/blockly-widgets/mblockly.pianoinput.js"></script>
+</head>
+<body>
+    <div class="tip">
+        <p>粗粒度的测试，便于概览ui是否正确</p>
+        <ul>
+            <li>测试所有block块的ui渲染</li>
+            <li>测试所有bloc块的js代码生成</li>
+        </ul>
+        <div class="links">
+            <a href="index.html">> test_blocks</a>
+            <a href="ui-generator.html">> test_ui_generator</a>
+        </div>
+    </div>
+
+    <div class="test-stats">
+      <p class="inline">
+        <input type="button" class="btn-begin-test" value="Begin Test" onclick="beginTest()">
+        <input type="button" value="Clear Workspace" onclick="clearWorkspace()">
+      </p>
+      <div class="current-block-category"></div>
+
+      <p class="inline">
+        选择主板为：
+        <select id="deviceType">
+          <option value="all">-- seleect --</option>
+          <option value="mcore">mcore</option>
+          <option value="orion">orion</option>
+          <option value="auriga">auriga</option>
+          <option value="megaPi">megaPi</option>
+        </select>
+      </p>
+
+    </div>
+
+    <!-- main -->
+    <div id="blocklyDiv"></div>
+
+  <xml id="toolbox" style="display: none">
+
+    <!-- mblockly自定的block块 -->
+    <category name="Begin" class="category_start">
+      <block type="when_slider_changed" data-widgetType="Slider" data-blockType="when"></block>
+      <block type="when_button_pressed_down" data-widgetType="Button" data-blockType="when"></block>
+      <block type="when_button_pressed_up" data-widgetType="Button" data-blockType="when"></block>
+      <block type="when_switch_on" data-widgetType="Switch" data-blockType="when"></block>
+      <block type="when_switch_off" data-widgetType="Switch" data-blockType="when"></block>
+      <block type="when_dpad_top_down" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_dpad_bottom_down" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_dpad_left_down" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_dpad_right_down" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_dpad_top_up" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_dpad_bottom_up" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_dpad_left_up" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_dpad_right_up" data-widgetType="DPad" data-blockType="when"></block>
+      <block type="when_start" data-widgetType="Display" data-blockType="when"></block>
+    </category>
+
+    <category name="Move" class="category_move">
+        <block type="move_run">
+            <value name="SPEED">
+                <block type="math_number">
+                    <field name="NUM">100</field>
+                </block>
+            </value>
+        </block>
+
+        <block type="move_turn">
+            <value name="SPEED">
+                <block type="math_number">
+                    <field name="NUM">100</field>
+                 </block>
+            </value>
+        </block>
+
+        <block type="move_set_dc_motor">
+            <value name="SPEED">
+                <block type="math_number">
+                  <field name="NUM">100</field>
+               </block>
+            </value>
+        </block>
+
+        <!-- 专为auriga和megaPi主板设定，不带距离 -->
+        <block type="move_set_encoder_motor" data-deviceType="auriga-megaPi">
+            <value name="SPEED">
+                <block type="math_number">
+                  <field name="NUM">100</field>
+                </block>
+            </value>
+        </block>
+
+        <!-- 通用编码电机，带指定距离 -->
+        <block type="move_set_common_encoder_motor" data-not-deviceType="megaPi-mcore">
+            <value name="SPEED">
+                <block type="math_number">
+                  <field name="NUM">100</field>
+                </block>
+            </value>
+            <value name="DISTANCE">
+                <block type="math_number">
+                    <field name="NUM">1000</field>
+                </block>
+            </value>
+        </block>
+
+        <block type="move_set_servo_motor">
+            <value name="DEGREE">
+                <block type="math_number">
+                    <field name="NUM">90</field>
+                 </block>
+            </value>
+        </block>
+
+        <block type="move_set_stepper_motor" data-not-deviceType="mcore">
+            <value name="SPEED">
+                <block type="math_number">
+                  <field name="NUM">3000</field>
+                </block>
+            </value>
+
+            <value name="DISTANCE">
+                <block type="math_number">
+                  <field name="NUM">1000</field>
+              </block>
+            </value>
+        </block>
+
+        <block type="move_stop"></block>
+
+        <!-- 磁编码舵机相关 -->
+        <block type="smartServo_set_as_dc_motor" data-deviceType="no">
+            <value name="ID">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                 </block>
+            </value>
+            <value name="SPEED">
+                <block type="math_number">
+                    <field name="NUM">100</field>
+                 </block>
+            </value>
+        </block>
+
+        <block type="smartServo_set_break" data-deviceType="no">
+            <value name="ID">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+        </block>
+        <block type="smartServo_init_angle" data-deviceType="no">
+            <value name="ID">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+        </block>
+
+        <block type="smartServo_set_angle" data-deviceType="no">
+            <value name="ID">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+            <value name="ANGLE">
+                <block type="math_number">
+                    <field name="NUM">180</field>
+                </block>
+            </value>
+            <value name="SPEED">
+                <block type="math_number">
+                    <field name="NUM">20</field>
+                </block>
+            </value>
+        </block>
+
+        <block type="smartServo_reset" data-deviceType="no">
+            <value name="ID">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+            <value name="SPEED">
+                <block type="math_number">
+                    <field name="NUM">30</field>
+                </block>
+            </value>
+        </block>
+
+    </category>
+
+    <category name="Display" class="category_display">
+        <block type="play_tone" data-deviceType="auriga-mcore"></block>
+        <block type="play_tone_full" data-deviceType="auriga-mcore"></block>
+        <block type="display_read_x_on_y"></block>
+
+        <!-- mbot led -->
+        <block type="set_mbot_led_color_full" data-deviceType="mcore-default">
+            <value name="LEFT_COLOUR_MCORE">
+              <block type="colour_picker">
+                <field name="COLOUR">#ff0000</field>
+              </block>
+            </value>
+            <value name="RIGHT_COLOUR_MCORE">
+              <block type="colour_picker">
+                <field name="COLOUR">#ff0000</field>
+              </block>
+            </value>
+        </block>
+
+        <block type="set_mbot_led_color_rgb" data-deviceType="mcore-default">
+          <value name="LED_POSITION">
+            <block type="math_number_list"></block>
+          </value>
+          <value name="COLOUR_R">
+            <block type="math_number">
+                <field name="NUM">255</field>
+             </block>
+          </value>
+          <value name="COLOUR_G">
+            <block type="math_number">
+                <field name="NUM">0</field>
+             </block>
+          </value>
+          <value name="COLOUR_B">
+            <block type="math_number">
+                <field name="NUM">0</field>
+             </block>
+          </value>
+        </block>
+        <block type="stop_mbot_led_color" data-deviceType="mcore-default"></block>
+
+        <!-- auriga led panel -->
+        <block type="set_auriga_led_color" data-deviceType="auriga">
+          <value name="LED_POSITION">
+            <block type="math_number_list"></block>
+          </value>
+          <value name="COLOUR2">
+            <block type="colour_picker">
+              <field name="COLOUR">#ff0000</field>
+            </block>
+          </value>
+        </block>
+        <block type="set_auriga_led_color_rgb" data-deviceType="auriga">
+          <value name="LED_POSITION">
+            <block type="math_number_list"></block>
+          </value>
+          <value name="COLOUR_R">
+            <block type="math_number">
+                <field name="NUM">255</field>
+             </block>
+          </value>
+          <value name="COLOUR_G">
+            <block type="math_number">
+                <field name="NUM">0</field>
+             </block>
+          </value>
+          <value name="COLOUR_B">
+            <block type="math_number">
+                <field name="NUM">0</field>
+             </block>
+          </value>
+        </block>
+        <block type="stop_auriga_led_color" data-deviceType="auriga">
+          <value name="LED_POSITION">
+            <block type="math_number_list"></block>
+          </value>
+        </block>
+
+        <!-- common led -->
+        <block type="set_common_led_color">
+          <value name="LED_POSITION">
+            <block type="math_number_list"></block>
+          </value>
+          <value name="COLOUR2">
+            <block type="colour_picker">
+              <field name="COLOUR">#ff0000</field>
+            </block>
+          </value>
+        </block>
+        <block type="set_led_color_rgb">
+          <value name="LED_POSITION">
+            <block type="math_number_list"></block>
+          </value>
+          <value name="COLOUR_R">
+            <block type="math_number">
+                <field name="NUM">255</field>
+             </block>
+          </value>
+          <value name="COLOUR_G">
+            <block type="math_number">
+                <field name="NUM">0</field>
+             </block>
+          </value>
+          <value name="COLOUR_B">
+            <block type="math_number">
+                <field name="NUM">0</field>
+             </block>
+          </value>
+        </block>
+        <block type="stop_common_led_color">
+          <value name="LED_POSITION">
+            <block type="math_number_list"></block>
+          </value>
+        </block>
+
+        <!-- 智能舵机 -->
+        <block type="smartServo_set_led" data-deviceType="no">
+            <value name="ID">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                 </block>
+            </value>
+            <value name="COLOUR">
+                <block type="colour_picker">
+                  <field name="COLOUR">#ff0000</field>
+                </block>
+            </value>
+        </block>
+
+        <block type="smartServo_hand_shake" data-deviceType="no">
+            <value name="ID">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                 </block>
+            </value>
+        </block>
+
+        <!-- 数码管 -->
+        <block type="display_serial_display">
+            <value name="NUMBER">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+               </block>
+            </value>
+        </block>
+
+        <!-- 相机快门 -->
+        <block type="display_shutter"></block>
+    </category>
+
+    <category name="Event" class="category_event">
+        <block type="tablet_shaked"></block>
+        <block type="tablet_tilt_lr"></block>
+        <block type="tablet_tilt_fb"></block>
+        <block type="event_linefollower_reads"></block>
+        <block type="event_receieve_light"></block>
+        <block type="event_obstacle_ahead"></block>
+        <block type="event_noise_around"></block>
+        <block type="event_switch_changed"></block>
+        <block type="event_button_changed"></block>
+    </category>
+
+    <category name="Detect" class="category_detect">
+      <block type="detect_get_slider_value"></block>
+      <block type="detect_ultrasonic"></block>
+      <block type="detect_linefollow"></block>
+      <block type="detect_lightness"></block>
+      <block type="detect_volume"></block>
+      <block type="detect_temperature" data-deviceType="auriga"></block>
+      <block type="detect_temperature_humidity"></block>
+      <block type="detect_common_temperature"></block>
+      <block type="detect_enCoderMotorValue" data-deviceType="auriga"></block>
+      <block type="detect_gyro" data-deviceType="megaPi"></block>
+      <block type="detect_auriga_gyro" data-deviceType="auriga"></block>
+      <block type="detect_potentiometer"></block>
+      <block type="detect_limitSwitch"></block>
+      <block type="detect_pir"></block>
+      <block type="detect_joystick"></block>
+      <!-- 磁编码舵机相关 -->
+      <block type="detect_smartServo_angle" data-deviceType="no">
+          <value name="ID">
+              <block type="math_number">
+                  <field name="NUM">1</field>
+              </block>
+          </value>
+      </block>
+    </category>
+
+    <category name="Math" class="category_math">
+        <block type="math_modulo">
+            <value name="DIVIDEND">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+            <value name="DIVISOR">
+                <block type="math_number">
+                    <field name="NUM">10</field>
+                </block>
+            </value>
+        </block>
+        <block type="math_random_int">
+            <value name="FROM">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+            <value name="TO">
+                <block type="math_number">
+                    <field name="NUM">10</field>
+                </block>
+            </value>
+        </block>
+        <block type="colour_picker"></block>
+    </category>
+
+    <category name="Controls" class="category_control">
+        <block type="controls_if"></block>
+        <block type="controls_if">
+          <mutation else="1"></mutation>
+        </block>
+        <block type="wait">
+          <value name="DELAY">
+              <block type="math_number">
+                  <field name="NUM">1</field>
+              </block>
+          </value>
+        </block>
+        <block type="wait_until"></block>
+        <block type="controls_repeat_forever"></block>
+        <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <block type="math_number">
+                  <field name="NUM">10</field>
+                </block>
+          </value>
+        </block>
+        <block type="controls_for">
+            <value name="FROM">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+            </value>
+            <value name="TO">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+            <value name="BY">
+              <block type="math_number">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+        </block>
+    </category>
+
+
+    <!-- blockly自带的部分 -->
+    <category name="Logic" colour="210">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+    </category>
+    <category name="Loops" colour="120">
+      <block type="controls_repeat_ext"></block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for"></block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category name="Math" colour="230">
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_constant"></block>
+      <block type="math_number_property"></block>
+      <block type="math_round"></block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain"></block>
+      <block type="math_random_int"></block>
+      <block type="math_random_float"></block>
+    </category>
+    <category name="Text" colour="160">
+      <block type="text"></block>
+      <block type="text_join"></block>
+      <block type="text_append"></block>
+      <block type="text_length"></block>
+      <block type="text_isEmpty"></block>
+      <block type="text_indexOf"></block>
+      <block type="text_charAt"></block>
+      <block type="text_getSubstring"></block>
+      <block type="text_changeCase"></block>
+      <block type="text_trim"></block>
+      <block type="text_print"></block>
+      <block type="text_prompt_ext"></block>
+    </category>
+    <category name="Lists" colour="260">
+      <block type="lists_create_empty"></block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat"></block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_indexOf"></block>
+      <block type="lists_getIndex"></block>
+      <block type="lists_setIndex"></block>
+      <block type="lists_getSublist"></block>
+      <block type="lists_sort"></block>
+      <block type="lists_split"></block>
+    </category>
+    <category name="Colour" colour="20">
+      <block type="colour_picker"></block>
+      <block type="colour_random"></block>
+      <block type="colour_rgb"></block>
+      <block type="colour_blend"></block>
+    </category>
+    <category name="Variables" colour="330">
+        <block type="variables_set"></block>
+        <block type="variables_get"></block>
+    </category>
+    <category name="Functions" colour="290" custom="PROCEDURE"></category>
+
+    <!-- 基于web的部分 -->
+    <category name="WebApi" colour="190">
+      <block type="web_get_whether"></block>
+      <block type="show_msg"></block>
+    </category>
+
+  </xml>
+
+
+  <style>
+    #blocklyDiv {
+      float: right;
+      height: 75%;
+      width: 69%;
+      margin-top: 5px;
+    }
+    #importExport {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <table height="75%" width="30%"><tr><td valign="top">
+    <h1>MBlockly Generator Tests</h1>
+
+    <p>
+      <select id="testUrl">
+        <option value="blocks-xml/begin.xml">Begin</option>
+        <option value="blocks-xml/move.xml">Move</option>
+        <option value="blocks-xml/display.xml">Display</option>
+        <option value="blocks-xml/event.xml">Event</option>
+        <option value="blocks-xml/detect.xml">Detect</option>
+        <option value="blocks-xml/math.xml">Math</option>
+        <option value="blocks-xml/controls.xml">Controls</option>
+        <option value="">Other...</option>
+      </select>
+      <input type="button" value="Load" onclick="loadXml()">
+    </p>
+
+    <p>
+      <input id="indexing" type="checkbox" checked> Generate with one-based indexing
+    </p>
+
+    <p>
+      Generate:
+      <input type="button" value="XML" onclick="toXml()">
+      <input type="button" value="OneLimeXml" onclick="oneLimeXml()">
+      <input type="button" value="JavaScript" onclick="toJavaScript()">
+      <input type="button" value="RenderToPage" onclick="renderXml()">
+      <input type="button" value="ToCode" onclick="toCode()">
+      <input type="button" value="RunCode" onclick="runCode()">
+      <input type="button" value="SimplifyCode" onclick="simplifyCode()">
+    </p>
+  </td></tr><tr><td height="99%">
+    <textarea id="importExport" wrap="off"></textarea>
+  </td></tr></table>
+
+  <script src="assets/jquery.min.js"></script>
+  <script src="test_ui_generator.js"></script>
+
+</body>
+</html>

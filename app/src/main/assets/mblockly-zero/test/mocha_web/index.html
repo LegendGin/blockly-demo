@@ -1,0 +1,99 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MBlockly Mocha Unit Tests</title>
+  <link href="assets/mocha.css" rel="stylesheet" />
+  <link href="assets/style.css" rel="stylesheet" />
+
+  <!-- blockly core files -->
+    <script src="../../vendors/blockly/blockly_uncompressed.js"></script>
+    <!-- blockly blocks defined -->
+    <script src="../../vendors/blockly/blocks_compressed.js"></script>
+    <script src="../../vendors/blockly/javascript_compressed.js"></script>
+
+    <!-- libary -->
+    <script src="../../vendors/jquery-2.1.3.min.js"></script>
+    <script src="../../vendors/acorn_interpreter.js"></script>
+    <script src="../../vendors/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- language -->
+    <script src="../../vendors/blockly/msg/js/en.js"></script>
+    <script src="../../msg/js/en.js"></script>
+
+    <!-- common-->
+    <script src="../../js/common/base.js"></script>
+    <script src="../../js/common/block_keeper.js"></script>
+    <script src="../../js/common/block_color.js"></script>
+    <script src="../../js/common/blockly_init.js"></script>
+    <script src="../../js/common/workspace_extend_events.js"></script>
+    <script src="../../js/common/settings.js"></script>
+    <script src="../../js/common/runtime.js"></script>
+    <!-- common blocks -->
+    <script src="../../js/common/blocks/blocks_control.js"></script>
+    <script src="../../js/common/blocks/blocks_math.js"></script>
+    <!-- common blockly modified -->
+    <script src="../../js/common/blockly-extend/core/workspace_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/xml.js"></script>
+    <script src="../../js/common/blockly-extend/core/toolbox.js"></script>
+    <script src="../../js/common/blockly-extend/core/field_textinput.js"></script>
+    <script src="../../js/common/blockly-extend/core/constants.js"></script>
+    <script src="../../js/common/blockly-extend/core/field_dropdown.js"></script>
+    <script src="../../js/common/blockly-extend/core/flyout.js"></script>
+    <script src="../../js/common/blockly-extend/core/basenode.js"></script>
+    <script src="../../js/common/blockly-extend/core/blockly.js"></script>
+    <script src="../../js/common/blockly-extend/core/block_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/block_render_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/utils.js"></script>
+    <script src="../../js/common/blockly-extend/core/scrollbar.js"></script>
+    <script src="../../js/common/blockly-extend/core/widgetdiv.js"></script>
+    <script src="../../js/common/blockly-extend/generators/javascript/variables.js"></script>
+    <!-- cmomon blockly widgets -->
+    <script src="../../js/common/blockly-widgets/mblockly.numpadinput.js"></script>
+    <script src="../../js/common/blockly-widgets/mblockly.pianoinput.js"></script>
+
+    <!-- customized blocks -->
+    <script src="../../js/makeblockhd/blocks_start.js"></script>
+    <script src="../../js/makeblockhd/blocks_move.js"></script>
+    <script src="../../js/makeblockhd/blocks_display.js"></script>
+    <script src="../../js/makeblockhd/blocks_event.js"></script>
+    <script src="../../js/makeblockhd/blocks_detect.js"></script>
+    <!-- customized logic -->
+    <script src="../../js/makeblockhd/data.js"></script>
+    <script src="../../js/makeblockhd/whentable.js"></script>
+    <script src="../../js/makeblockhd/control.js"></script>
+    <script src="../../js/makeblockhd/action.js"></script>
+    <script src="../../js/makeblockhd/hostInterface.js"></script>
+    <script>
+        MBlockly.Settings.OPEN_LOG = true;
+    </script>
+</head>
+<body>
+    <div class="tip">
+        <p>细粒度的逻辑测试</p>
+        <ul>
+            <li>测试虚拟UI的block块：需要与原生端进行交互，模拟原生端的接口，保证获取组件的通道顺畅</li>
+            <li>测试与硬件交互的block块：截取协议，进行协议比对测试，确保发送协议的指令正确</li>
+            <li>测试解析数据的函数是否正确：模拟各种类型的返回协议，与预设的值进行比对，确保解析的函数方法正确</li>
+        </ul>
+        <div class="links">
+            <a href="index.html">> test_blocks</a>
+            <a href="ui-generator.html">> test_ui_generator</a>
+        </div>
+    </div>
+    <div id="mocha"></div>
+
+  <script src="assets/expect.js"></script>
+  <script src="assets/jquery.min.js"></script>
+  <script src="assets/mocha.js"></script>
+
+
+  <script>mocha.setup('bdd')</script>
+  <script src="test_blocks.js"></script>
+  <script src="native_mock.js"></script>
+  <script>
+    mocha.checkLeaks();
+    mocha.globals(['jQuery']);
+    mocha.run();
+  </script>
+</body>
+</html>

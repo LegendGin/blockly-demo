@@ -1,0 +1,380 @@
+.modal-dialog-bg {
+    z-index: 2;
+}
+.modal-dialog {
+    z-index: 3;
+    background: none;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+.modal-dialog-content {
+    border: none;
+    background: none;
+    padding: 0;
+}
+.modal-dialog-buttons {
+    padding-left: 30px;
+}
+.modal-dialog-buttons button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+    font-size: 2em;
+    background: white;
+    -webkit-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom-width: 5px;
+}
+#power-slider-box {
+    background: white;
+    width: 731px;
+    height: 358px;
+    border-radius: 20px;
+    font-family: "robotobold" sans-serif !important;
+}
+#power-slider {
+    width: 510px;
+    height: 36px;
+    border-radius: 10px;
+    position: absolute;
+    left: 58px;
+    top: 99px;
+}
+#power-slider-display {
+    font-size: 48px;
+    color: #b6e710;
+    text-align: center;
+    position: absolute;
+    top: 82px;
+    right: 51px;
+    font-family: "robotobold" sans-serif !important;
+}
+.modal-dialog-title-close {
+    background: #e0edfe url(../images/cross.png) no-repeat;
+}
+.slider-line-set-1 {
+    position: absolute;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    width: 20px;
+    height: 12px;
+    top: 13px;
+    left: 6px;
+}
+.slider-line-set-2 {
+    position: absolute;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    width: 20px;
+    height: 12px;
+    top: 33px;
+    left: 6px;
+}
+.goog-slider-vertical, .goog-slider-horizontal {
+    background-color: #ddd;
+    position: relative;
+    outline: none;
+}
+.goog-slider-thumb {
+    position: absolute;
+    background-color: #b6e710;
+    overflow: hidden;
+    border: 2px solid white;
+    border-radius: 10px;
+    border-bottom: 4px solid #a5ca24;
+}
+.goog-slider-thumb:active {
+    border-bottom-width: 1px;
+}
+.slider-thumb-shadow {
+    height: 36px;
+    background-color: #b6e710;
+}
+.goog-slider-vertical .goog-slider-thumb {
+    left: 0;
+    height: 50px;
+    width: 100%;
+}
+.goog-slider-horizontal .goog-slider-thumb {
+    top: -14px;
+    width: 36px;
+    height: 64px;
+}
+.goog-slider-disabled {
+    background-color: lightgray;
+}
+.slider-label {
+    font-size: 18px;
+    font-family: "robotobold" sans-serif !important;
+    color: #cccccc;
+    position: absolute;
+}
+#slider-fast-text {
+    top: 24px;
+    left: 422px;
+}
+#slider-slow-text {
+    top: 24px;
+    left: 234px;
+}
+#slider-very-slow-text {
+    bottom: 147px;
+    left: 129px;
+}
+#slider-medium-text {
+    bottom: 147px;
+    left: 314px;
+}
+#slider-very-fast-text {
+    bottom: 147px;
+    left: 502px;
+}
+.slider-vertical-line {
+    height: 32px;
+    border-right: 1px solid #cccccc;
+    position: absolute;
+}
+#slider-slow-line {
+    top: 55px;
+    left: 253px;
+}
+#slider-fast-line {
+    top: 55px;
+    left: 439px;
+}
+#slider-very-slow-line {
+    bottom: 179px;
+    left: 168px;
+}
+#slider-medium-line {
+    bottom: 179px;
+    left: 346px;
+}
+#slider-very-fast-line {
+    bottom: 179px;
+    left: 538px;
+}
+#slider-ok-button, #piano-button-ok {
+    width: 131px;
+    height: 61px;
+    background: #b6e710;
+    position: absolute;
+    bottom: 28px;
+    left: 300px;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 3px solid #8bb00e;
+    background: #b6e710 url(../images/checkmark-large.png) 31px no-repeat;
+}
+#slider-ok-button:active, #piano-button-ok:active {
+    border-bottom-width: 1px;
+}
+
+/* numpad section */
+#numpad {
+    width: 306px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px 20px 12px;
+}
+.numpad-buttons {
+    margin: 0 0 0 -7px;
+}
+.numpad-button, #numpad-backspace {
+    width: 84px;
+    height: 87px;
+    display: inline-block;
+    border: none;
+    margin-left: 7px;
+    margin-bottom: 5px;
+    background-color: #4abefb;
+    border-bottom: 4px solid #2c99d2;
+    color: white;
+    font-size: 3em;
+    line-height: 70px;
+    padding: 0;
+    border-radius: 10px;
+    outline: none;
+}
+.numpad-button:active, #numpad-backspace:active {
+    height: 85px;
+    border-bottom: 2px solid #2c99d2;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+}
+.numpad-button:active {
+    top: 4px;
+    position: relative;
+}
+.numpad-display-section {
+    margin-bottom: 0px;
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    height: 89px;
+    margin-bottom: 6px;
+}
+#numpad-button-ok {
+    width: 176px;
+    text-indent: -9999px;
+    background-color: #c1f024;
+    margin-left: 6px;
+    border-bottom: 4px solid #88ac0e;
+    background: #c1f024 url(../images/checkmark.png) center no-repeat;
+}
+.numpad-display-container {
+    width: 260px;
+    height: 90px;
+    display: inline-block;
+    font-size: 3em;
+    line-height: 95px;
+    text-indent: 10px;
+    overflow: hidden;
+    position: relative;
+}
+#numpad-display {
+    width: 186px;
+    margin-right: 17px;
+    text-align: right;
+    float: right;
+    font-family: "robotobold", sans-serif !important;
+    line-height: 88px;
+    color: #4d4d4d;
+}
+#numpad-backspace:active {
+    top: 25px;
+}
+
+/* color slider section */
+.blocklyWidgetDiv div.goog-palette-colorswatch {
+    height: 50px;
+    width: 50px;
+}
+@media screen and (max-device-width:766px) {
+
+    /* slider box */
+    #power-slider-box {
+        width: 500px;
+        height: 258px;
+        margin-top: 25px;
+    }
+    #power-slider {
+        width: 400px;
+        left: 44px;
+    }
+
+    div.goog-slider-thumb {
+        left: 152px;
+        border-bottom: 2px solid #a5ca24;
+    }
+
+    #power-slider-display {
+        font-size: 18px;
+        top: 104px;
+        right: 18px;
+    }
+    .slider-label {
+        font-size: 14px;
+    }
+    #slider-very-slow-line {
+        bottom: 105px;
+        left: 118px;
+    }
+    #slider-very-slow-text {
+        bottom: 85px;
+        left: 88px;
+    }
+    #slider-slow-line {
+        left: 203px;
+        top: 58px;
+    }
+    #slider-slow-text {
+        top: 34px;
+        left: 189px;
+    }
+    #slider-medium-line {
+        bottom: 105px;
+        left: 296px;
+    }
+    #slider-medium-text {
+        bottom: 85px;
+        left: 270px;
+    }
+    #slider-fast-line {
+        top: 58px;
+        left: 349px;
+    }
+    #slider-fast-text {
+        top: 34px;
+        left: 338px;
+    }
+    #slider-very-fast-line {
+        bottom: 105px;
+        left: 410px;
+    }
+    #slider-very-fast-text {
+        bottom: 85px;
+        left: 380px;
+    }
+
+    #slider-ok-button {
+        width: 150px;
+        height: 46px;
+        left: 188px;
+        background-size: 48px 32px;
+        background-position: center;
+        bottom: 18px;
+    }
+    #numpad {
+        width: 210px;
+        padding: 10px 10px 12px;
+    }
+    .numpad-display-section {
+        height: 45px;
+    }
+    .numpad-button, #numpad-backspace {
+        width: 42px;
+        height: 44px;
+        display: inline-block;
+        border: none;
+        margin-left: 7px;
+        margin-bottom: 5px;
+        background-color: #4abefb;
+        border-bottom: 4px solid #2c99d2;
+        color: white;
+        font-size: 2em;
+        line-height: 44px;
+        padding: 0;
+        border-radius: 10px;
+    }
+    .numpad-display-container {
+        width: 190px;
+        height: 45px;
+        display: inline-block;
+        font-size: 2em;
+        line-height: 45px;
+        text-indent: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+    .numpad-button:active, #numpad-backspace:active {
+        height: 45px;
+    }
+    .numpad-button:active {
+        top: 1px;
+    }
+    #numpad-display {
+        line-height: 48px;
+    }
+    #numpad-button-ok {
+        width: 140px;
+    }
+    .blocklyWidgetDiv div.goog-palette-colorswatch {
+        width: 20px;
+        height: 20px;
+    }
+}

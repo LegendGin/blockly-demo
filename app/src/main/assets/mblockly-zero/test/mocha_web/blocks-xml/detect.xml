@@ -1,0 +1,60 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="detect_get_slider_value" id="4,~^Tov4}g#79K:s~.N9" x="13" y="13">
+    <field name="SLIDER">0</field>
+  </block>
+  <block type="detect_limitSwitch" id="o=07ysG!FZqrI-L2G;v%" x="363" y="13">
+    <field name="PORT">PORT-6</field>
+    <field name="SLOT">SLOT-1</field>
+  </block>
+  <block type="detect_ultrasonic" id="l_d458gL~SKKA;_Hy%}4" x="13" y="63">
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="detect_pir" id="ol@X(c6zZasYySX;0^jk" x="363" y="63">
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="detect_linefollow" id="Js]4L6-SE(]sd_09M;fP" x="13" y="113">
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="detect_joystick" id="czC4K5W{EFM08jw)L6,d" x="363" y="113">
+    <field name="AXIS">01</field>
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="detect_lightness" id="]AQ3_:Cyx.NF-ewy/Njz" x="13" y="163">
+    <field name="PORT">PORT-11</field>
+  </block>
+  <block type="detect_smartServo_angle" id="@~:]_wK*P?OQ*rEr-I^y" x="363" y="163">
+    <value name="ID">
+      <block type="math_number" id="(VUhhORq;qm:U^Ikd]?1">
+        <field name="NUM">1</field>
+      </block>
+    </value>
+  </block>
+  <block type="detect_volume" id="3ymPI2e+TD)1SIv]31;x" x="13" y="213">
+    <field name="PORT">PORT-14</field>
+  </block>
+  <block type="detect_temperature" id="lP4o|)j!qL]R4)S_(,fW" x="13" y="263">
+    <field name="PORT">PORT-13</field>
+  </block>
+  <block type="detect_temperature_humidity" id="CgA%^}1qQ*bVx.Quhjjf" x="13" y="313">
+    <field name="TYPE">01</field>
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="detect_common_temperature" id="G+8j%B`FqDK{o2WPxyBj" x="13" y="363">
+    <field name="PORT">PORT-6</field>
+    <field name="SLOT">SLOT-1</field>
+  </block>
+  <block type="detect_enCoderMotorValue" id="Zt+t?1oKMJNDdBmvn!R2" x="13" y="413">
+    <field name="TYPE">POSITION</field>
+    <field name="SLOT">PORT-1</field>
+  </block>
+  <block type="detect_gyro" id="3t]oZG#~r;la?Xu1u0vW" x="13" y="463">
+    <field name="AXIS">01</field>
+    <field name="PORT">PORT-6</field>
+  </block>
+  <block type="detect_auriga_gyro" id="h9gNSHfL`45hvYPBCd-+" x="13" y="513">
+    <field name="AXIS">01</field>
+  </block>
+  <block type="detect_potentiometer" id="JyyY`JoqS8.ha]0XrgeL" x="13" y="563">
+    <field name="PORT">PORT-6</field>
+  </block>
+</xml>

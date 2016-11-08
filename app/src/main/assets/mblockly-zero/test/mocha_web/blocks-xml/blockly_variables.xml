@@ -1,0 +1,8 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" id="OPBkWEYeJ?Qnibs~X_q^" x="13" y="13">
+    <field name="VAR">item</field>
+  </block>
+  <block type="variables_get" id="`2`!-ikBYCTsK9/|A2*q" x="13" y="63">
+    <field name="VAR">item</field>
+  </block>
+</xml>

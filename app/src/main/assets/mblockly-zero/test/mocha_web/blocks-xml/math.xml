@@ -1,0 +1,29 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="math_modulo" id="fcoAGXS5kd/X7ShQaC:a" x="13" y="13">
+    <value name="DIVIDEND">
+      <block type="math_number" id=".8`w[GDb6?]=/xZ6md.r">
+        <field name="NUM">1</field>
+      </block>
+    </value>
+    <value name="DIVISOR">
+      <block type="math_number" id="J]pa^9z}T`x|];JmXadP">
+        <field name="NUM">10</field>
+      </block>
+    </value>
+  </block>
+  <block type="math_random_int" id=")lNE+x5~Ia:1Ipmt`=Ag" x="13" y="63">
+    <value name="FROM">
+      <block type="math_number" id="+xdX4MhwWQC8?Hs(CWv[">
+        <field name="NUM">1</field>
+      </block>
+    </value>
+    <value name="TO">
+      <block type="math_number" id="U8xX)U9q^a4cDc5CTT5/">
+        <field name="NUM">10</field>
+      </block>
+    </value>
+  </block>
+  <block type="colour_picker" id="+mLWT9;3|qODA;MwPgHT" x="13" y="113">
+    <field name="COLOUR">#ff0000</field>
+  </block>
+</xml>

@@ -1,0 +1,10 @@
+<html>
+	<head> </head>
+	<body>
+		<div width="500px" height="500px">
+			<img src="images/edit.png"/>
+		</div>
+		
+		<img src="images/edit.png"/>
+	</body>
+</html>

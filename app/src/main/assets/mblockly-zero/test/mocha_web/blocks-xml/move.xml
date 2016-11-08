@@ -1,0 +1,149 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="move_run" id="_pA:0~oZAOD7KFQG5#zm" x="13" y="13">
+    <field name="DIRECTION">FORWARD</field>
+    <value name="SPEED">
+      <block type="math_number" id="`HOu9d9=:sgNAy75{`{y">
+        <field name="NUM">100</field>
+      </block>
+    </value>
+    <next>
+      <block type="move_turn" id="D@B^Z27^oWpq|j[4IXQt">
+        <field name="DIRECTION">LEFT</field>
+        <value name="SPEED">
+          <block type="math_number" id="Yd_vb?XPs395):,;HY(P">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+        <next>
+          <block type="move_set_dc_motor" id="x)K0ff/pMUnwOiL3q500">
+            <field name="PORT">PORT-1</field>
+            <value name="SPEED">
+              <block type="math_number" id="!pm]HRejwbZ3b4}{rbq-">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+            <next>
+              <block type="move_set_encoder_motor" id="`e.{*WsFRqPDAyiT_ceK">
+                <field name="SLOT">PORT-1</field>
+                <value name="SPEED">
+                  <block type="math_number" id="Lc@#sT[9={|N%nqpvtMi">
+                    <field name="NUM">100</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="move_set_common_encoder_motor" id="q(O,~TBEKY0gBk6(I/Q%">
+                    <field name="PORT">PORT-1</field>
+                    <field name="SLOT">SLOT-1</field>
+                    <value name="SPEED">
+                      <block type="math_number" id="t](UU)%y4DLFq3^i?)OE">
+                        <field name="NUM">100</field>
+                      </block>
+                    </value>
+                    <value name="DISTANCE">
+                      <block type="math_number" id="n:PKyCj7p_fmGHKv/fBz">
+                        <field name="NUM">1000</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="move_set_servo_motor" id="9@MS;V?yTR03KE%@={El">
+                        <field name="PORT">PORT-6</field>
+                        <field name="SLOT">SLOT-1</field>
+                        <value name="DEGREE">
+                          <block type="math_number" id="!AtZENv_m+r,,[7N@gWm">
+                            <field name="NUM">90</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="move_set_stepper_motor" id="B06,Mox_==5MTAnfcwjA">
+                            <field name="PORT">PORT-1</field>
+                            <value name="SPEED">
+                              <block type="math_number" id="*tjw(Mmys/I{mdxK*Tp;">
+                                <field name="NUM">3000</field>
+                              </block>
+                            </value>
+                            <value name="DISTANCE">
+                              <block type="math_number" id="eQ9C3||50-0}|ybDnD1W">
+                                <field name="NUM">1000</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="move_stop" id="XogvGB,2xP?%/#)(P-HK">
+                                <next>
+                                  <block type="smartServo_set_as_dc_motor" id="_zAQm}liI{@ul%.q{m~8">
+                                    <field name="DIRECTION">1</field>
+                                    <value name="ID">
+                                      <block type="math_number" id="s+1ek#=0@JLb]X+y8.qX">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <value name="SPEED">
+                                      <block type="math_number" id="d,ckPdrGk6WWRQSCvxy,">
+                                        <field name="NUM">100</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="smartServo_set_break" id="zwM`zPy!NM1r4PD@UNyp">
+                                        <field name="MODE">RELEASE</field>
+                                        <value name="ID">
+                                          <block type="math_number" id="!jg;m7%`cOO~IZAL705L">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="smartServo_init_angle" id="Md7VMll6H.I4]f1G[1]_">
+                                            <value name="ID">
+                                              <block type="math_number" id="}QU/do7ZPk(.i}Y1j7?Q">
+                                                <field name="NUM">1</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="smartServo_set_angle" id="?B05WcO+i2BS!xg=]!9!">
+                                                <field name="TYPE">ABSOLUTE</field>
+                                                <value name="ID">
+                                                  <block type="math_number" id="_;B.u|IGNNvLd/68A*7{">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                                <value name="ANGLE">
+                                                  <block type="math_number" id="THTvM)`t0+;1/X6O-Fz8">
+                                                    <field name="NUM">180</field>
+                                                  </block>
+                                                </value>
+                                                <value name="SPEED">
+                                                  <block type="math_number" id="_)+@V}.yaf]4O4F{8n^`">
+                                                    <field name="NUM">20</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="smartServo_reset" id="x7Y/I0UIhxY*o#jqVi,O">
+                                                    <value name="ID">
+                                                      <block type="math_number" id="+4mfGQ]4mq14=S{Jak~:">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

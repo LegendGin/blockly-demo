@@ -1,0 +1,32 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="math_number" id="aMtOCrC@~La=LkPV^A@D" x="-62" y="13">
+    <field name="NUM">0</field>
+  </block>
+  <block type="math_arithmetic" id="%!Xw-:XcIe2?R%jumbcF" x="-62" y="63">
+    <field name="OP">ADD</field>
+  </block>
+  <block type="math_single" id="d}NXm8Lmp=+}-Es]YsZv" x="-62" y="113">
+    <field name="OP">ROOT</field>
+  </block>
+  <block type="math_trig" id="I1]D#i6RbeCOnEmK#H[n" x="-62" y="163">
+    <field name="OP">SIN</field>
+  </block>
+  <block type="math_constant" id=":=/Nvm%C_{V%Lk)zw{G-" x="-62" y="213">
+    <field name="CONSTANT">PI</field>
+  </block>
+  <block type="math_number_property" id="ZiUsHXlg.SY:{_X`oO|[" x="-62" y="263">
+    <mutation divisor_input="false"></mutation>
+    <field name="PROPERTY">EVEN</field>
+  </block>
+  <block type="math_round" id="}tNGD/@vhRa3!~f+R+f1" x="-62" y="313">
+    <field name="OP">ROUND</field>
+  </block>
+  <block type="math_on_list" id="2Z232a2G%uOpzv^TN*Za" x="-62" y="363">
+    <mutation op="SUM"></mutation>
+    <field name="OP">SUM</field>
+  </block>
+  <block type="math_modulo" id="Ps~!#AO.9ex8{,EjjxZq" x="-62" y="413"></block>
+  <block type="math_constrain" id="pC7q=~_U.5h(ncK7Wgfg" x="-62" y="463"></block>
+  <block type="math_random_int" id=")~sOrgrNO7o_}whKNTrA" x="-62" y="513"></block>
+  <block type="math_random_float" id="O)mrGA2.KfxG!CN2=8/X" x="-62" y="563"></block>
+</xml>

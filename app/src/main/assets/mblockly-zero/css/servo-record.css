@@ -1,0 +1,74 @@
+.servo-record {
+    display: none;
+    width: 500px;
+    height: 330px;
+    background: #fff;
+
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    top: 50%;
+    margin-top: -165px;
+}
+
+.servo-record .mdialog-body {
+    padding: 10px;
+}
+.servo-record .mdialog-body .btn {
+    border: 1px solid #333;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    outline: none;
+}
+
+.music-ops .begin {
+    background: #2ecc71;
+    width: 80px;
+    height: 80px;
+    padding: 0;
+    border-radius: 80px;
+}
+.music-ops .addRecordNode {
+    background: #3498db;
+    padding: 25px 20px;
+    border-radius: 35px;
+}
+.music-ops .stop {
+    background: #95a5a6;
+    width: 80px;
+    height: 80px;
+    padding: 0;
+    border-radius: 80px;
+}
+.music-ops .play {
+    width: 80px;
+    height: 80px;
+    padding: 0;
+    background: #e67e22;
+    border-radius: 80px;
+    overflow: hidden;
+}
+.music-ops .restart {
+    background: #f39c12;
+}
+
+.servo-record .table {
+    border-collapse: collapse;
+}
+.servo-record .table th,
+.servo-record .table td {
+    border: 1px solid #ddd;
+    padding: 5px 8px;
+    text-align: center;
+}
+
+
+
+// .servo-record {
+//     display: block;
+//     position: absolute;
+//     right: 0;
+//     top: 100px;
+//     width: 50px;
+//     background: #fff;
+// }

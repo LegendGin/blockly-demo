@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MBlockly</title>
+    <!-- style -->
+    <link rel="stylesheet" href="../../css/widget.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/mblockly.numberinput.css">
+    <link rel="stylesheet" href="../../css/mblockly.pianoinput.css">
+    <link rel="stylesheet" href="../../css/mblockly.ledmatrix.css">
+    <link rel="stylesheet" href="../../vendors/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../../css/servo-record.css">
+    <link rel="stylesheet" href="../../css/neuron.css">
+    <link rel="stylesheet" href="../../css/style-for-mobile.css">
+
+    <style>
+        .name-wrapper, .name-value {
+          display: block;
+        }
+    </style>
+
+    <!-- blockly core files -->
+    <script src="../../vendors/blockly/blockly_compressed.js"></script>
+    <!-- blockly blocks defined -->
+    <script src="../../vendors/blockly/blocks_compressed.js"></script>
+    <script src="../../vendors/blockly/javascript_compressed.js"></script>
+
+    <!-- language -->
+    <script src="../../vendors/blockly/msg/js/zh-hant.js"></script>
+    <script src="../../msg/js/zh-hant.js"></script>
+
+    <!-- libary -->
+    <script src="../../vendors/jquery-2.1.3.min.js"></script>
+    <script src="../../vendors/acorn_interpreter.js"></script>
+    <script src="../../vendors/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- common-->
+    <script src="../../js/common/base.js"></script>
+    <script src="../../js/common/block_keeper.js"></script>
+    <script src="../../js/common/block_color.js"></script>
+    <script src="../../js/common/blockly_init.js"></script>
+    <script src="../../js/common/workspace_extend_events.js"></script>
+    <script src="../../js/common/settings.js"></script>
+    <script src="../../js/common/runtime.js"></script>
+    <!-- common blocks -->
+    <script src="../../js/common/blocks/blocks_control.js"></script>
+    <script src="../../js/common/blocks/blocks_math.js"></script>
+    <!-- common blockly modified -->
+    <script src="../../js/common/blockly-extend/core/workspace_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/xml.js"></script>
+    <script src="../../js/common/blockly-extend/core/toolbox.js"></script>
+    <script src="../../js/common/blockly-extend/core/field_textinput.js"></script>
+    <script src="../../js/common/blockly-extend/core/constants.js"></script>
+    <script src="../../js/common/blockly-extend/core/flyout.js"></script>
+    <script src="../../js/common/blockly-extend/core/basenode.js"></script>
+    <script src="../../js/common/blockly-extend/core/blockly.js"></script>
+    <script src="../../js/common/blockly-extend/core/block_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/block_render_svg.js"></script>
+    <script src="../../js/common/blockly-extend/core/utils.js"></script>
+    <script src="../../js/common/blockly-extend/core/scrollbar.js"></script>
+    <script src="../../js/common/blockly-extend/core/widgetdiv.js"></script>
+    <script src="../../js/common/blockly-extend/generators/javascript/variables.js"></script>
+    <!-- cmomon blockly widgets -->
+    <script src="../../js/common/blockly-widgets/mblockly.numpadinput.js"></script>
+    <script src="../../js/common/blockly-widgets/mblockly.pianoinput.js"></script>
+    <script src="../../js/common/blockly-widgets/mblockly.ledmatrix.js"></script>
+
+    <!-- customized blocks -->
+    <script src="../../js/makeblockhd/blocks_start.js"></script>
+    <script src="../../js/makeblockhd/blocks_event.js"></script>
+    <script src="../../js/makeblockNeuron/blocks_move.js"></script>
+    <script src="../../js/makeblockNeuron/blocks_display.js"></script>
+    <script src="../../js/makeblockNeuron/blocks_detect.js"></script>
+
+    <!-- logic -->
+    <script src="../../js/makeblockhd/app.js"></script>
+    <script src="../../js/makeblockhd/data.js"></script>
+    <script src="../../js/makeblockhd/whentable.js"></script>
+    <script src="../../js/makeblockhd/control.js"></script>
+    <script src="../../js/makeblockhd/action.js"></script>
+    <script src="../../js/makeblockhd/hostInterface.js"></script>
+    <!-- neuron -->
+    <script src="../../js/makeblockNeuron/neurons_logic_engine.js"></script>
+    <script src="../../js/makeblockNeuron/neuron.js"></script>
+    <script src="../../js/makeblockNeuron/settings.js"></script>
+    <script src="../../js/makeblockNeuron/servo.js"></script>
+    <script src="../../js/makeblockNeuron/servo_record.js"></script>
+    <script src="../../js/makeblockNeuron/neuron_ui.js"></script>
+    <script src="../../js/makeblockNeuron/makeblockNeuron.js"></script>
+</head>
+<body>
+
+    <div class="scene stage">
+        <!-- top widgets -->
+        <div id="widgets">
+            <div id="viewport">
+                <div class="arrow arrow-left"></div>
+                <div id="wrapper">
+                    <ul id="scroller" class="owl-carousel">
+                    </ul>
+                </div>
+                <div class="arrow arrow-right"></div>
+            </div>
+        </div>
+
+        <!-- board warpper -->
+        <div id="board-wrapper">
+            <!-- menu left -->
+            <div id="menuLeft">
+                <div id="blockDeletionMask"><div class="trash-icon"></div></div>
+                <div id="toolboxScrollingDiv">
+                    <div id="toolboxDiv"></div>
+                    <div class="splitline"></div>
+                </div>
+            </div>
+
+            <!-- main -->
+            <div id="panel">
+                <div id="blocklyDiv"></div>
+            </div>
+        </div>
+
+        <!-- neuron-test -->
+        <div class="neuron-test">
+            <div class="ops">
+                <div class="flex"></div>
+            </div>
+            <table class="table"></table>
+        </div>
+
+        <div class="menus">
+            <div class="servo-tip"></div>
+            <div class="menu-tip"></div>
+        </div>
+
+        <div class="tips">
+            <table>
+                <tr>
+                    <th class="item">条目</th>
+                    <th class="description">说明</th>
+                </tr>
+                <tr>
+                    <td>智能舵机</td>
+                    <td>速度值范围是20~50
+                    </td>
+                </tr>
+                <tr>
+                    <td>9g舵机</td>
+                    <td>角度的范围是0~180</td>
+                </tr>
+                <tr>
+                    <td>直流电机</td>
+                    <td>速度范围是0~255</td>
+                </tr>
+                <tr>
+                    <td>编码电机</td>
+                    <td>速度范围是0~255</td>
+                </tr>
+                <tr>
+                    <td>步进电机</td>
+                    <td>
+                        位置说明：3200步是一圈，给出的数值即是步数 <br>
+                        速度说明：单位是rpm，表示一秒转动多少圈
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div> <!-- stage ends -->
+
+    <div class="mdialog servo-record">
+          <div class="mdialog-head">
+              <div class="btn cancel">Servo Action Recording</div>
+              <!-- <div class="btn confirm">Confirm</div> -->
+          </div>
+          <div class="mdialog-body">
+
+              <div class="music-ops">
+                  <button class="btn begin">Begin</button>
+                  <button class="btn stop">Stop</button>
+                  <button class="btn play">Play</button> <p></p>
+                  <button class="btn release">Release</button>
+                  <button class="btn reset">Reset position</button>
+                  <button class="btn init">Set start position</button>
+              </div>
+
+              <div class="music-info">
+                  <p>Time: <span class="beginTime">0</span></p>
+              </div>
+
+              <div class="content">
+                    <table class="table servoTable">
+
+                    </table>
+              </div>
+          </div>
+    </div>
+
+    <xml id="toolbox" style="display: none">
+        <category name="起始" class="category_start">
+          <block type="when_slider_changed" data-widgetType="Slider" data-blockType="when"></block>
+          <block type="when_button_pressed_down" data-widgetType="Button" data-blockType="when"></block>
+          <block type="when_button_pressed_up" data-widgetType="Button" data-blockType="when"></block>
+          <block type="when_switch_on" data-widgetType="Switch" data-blockType="when"></block>
+          <block type="when_switch_off" data-widgetType="Switch" data-blockType="when"></block>
+
+          <block type="when_dpad_top_down" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_dpad_bottom_down" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_dpad_left_down" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_dpad_right_down" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_dpad_top_up" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_dpad_bottom_up" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_dpad_left_up" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_dpad_right_up" data-widgetType="DPad" data-blockType="when"></block>
+          <block type="when_start" data-widgetType="Display" data-blockType="when"></block>
+        </category>
+
+        <category name="移動" class="category_move">
+            <!-- 旧版智能舵机 -->
+            <!-- <block type="smartServo_set_absolute_pos">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="ANGLE">
+                    <block type="math_number">
+                        <field name="NUM">180</field>
+                    </block>
+                </value>
+                <value name="SPEED">
+                    <block type="math_number">
+                        <field name="NUM">20</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="smartServo_set_relative_pos">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="ANGLE">
+                    <block type="math_number">
+                        <field name="NUM">180</field>
+                    </block>
+                </value>
+                <value name="SPEED">
+                    <block type="math_number">
+                        <field name="NUM">20</field>
+                    </block>
+                </value>
+            </block> -->
+
+
+            <!-- 磁编码舵机相关 -->
+            <block type="smartServo_set_break">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="smartServo_init_angle">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="smartServo_set_absolute_angle">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="ANGLE">
+                    <block type="math_number">
+                        <field name="NUM">180</field>
+                    </block>
+                </value>
+                <value name="SPEED">
+                    <block type="math_number">
+                        <field name="NUM">20</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="smartServo_set_relative_angle">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="ANGLE">
+                    <block type="math_number">
+                        <field name="NUM">180</field>
+                    </block>
+                </value>
+                <value name="SPEED">
+                    <block type="math_number">
+                        <field name="NUM">20</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="smartServo_set_as_dc_motor">
+                    <value name="ID">
+                        <block type="math_number">
+                            <field name="NUM">1</field>
+                        </block>
+                    </value>
+                <value name="SPEED">
+                    <block type="math_number">
+                        <field name="NUM">100</field>
+                    </block>
+                </value>
+            </block>
+            <!-- <block type="smartServo_recording"></block> -->
+            <block type="smartServo_reset">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+                <value name="SPEED">
+                    <block type="math_number">
+                        <field name="NUM">30</field>
+                    </block>
+                </value>
+            </block>
+        </category>
+
+        <category name="展示" class="category_display">
+            <block type="display_read_x_on_y"></block>
+            <block type="turn_indicator_light">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="set_led_color">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="COLOUR">
+                    <block type="colour_picker">
+                        <field name="COLOUR">#ff0000</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="set_led_chain_color">
+                 <value name="POSITION">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="COLOUR">
+                    <block type="colour_picker">
+                        <field name="COLOUR">#ff0000</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="play_tone">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="display_4_numeric">
+                <value name="NUMBER">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="display_screen_lcd_144">
+                <value name="TEXT">
+                    <block type="text"></block>
+                </value>
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <!-- <block type="display_led_matrix_8_8">
+                <value name="LED_MATRIX">
+                    <block type="led_matrix"></block>
+                </value>
+
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block> -->
+
+            <block type="display_led_matrix_panel">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <!-- <block type="display_led_matrix_8_16_text">
+                <value name="TEXT">
+                    <block type="text"></block>
+                </value>
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block> -->
+
+            <block type="display_led_matrix_8_16_time">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <!-- <block type="display_led_matrix_8_16_matrix">
+                <value name="LED_MATRIX">
+                    <block type="led_matrix_8_16"></block>
+                </value>
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block> -->
+
+            <block type="text"></block>
+
+            <block type="display_play_mp3">
+                <value name="ORDER">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="display_clear_all_mp3"></block>
+
+            <block type="display_delete_mp3">
+                <value name="ORDER">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="smartServo_display_color_rgb">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="COLOUR_R">
+                    <block type="math_number">
+                        <field name="NUM">255</field>
+                    </block>
+                </value>
+                <value name="COLOUR_G">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+                <value name="COLOUR_B">
+                    <block type="math_number">
+                        <field name="NUM">0</field>
+                    </block>
+                </value>
+            </block>
+            <block type="smartServo_display_color">
+                    <value name="ID">
+                        <block type="math_number">
+                            <field name="NUM">1</field>
+                        </block>
+                    </value>
+                    <value name="COLOUR">
+                        <block type="colour_picker">
+                            <field name="COLOUR">#ff0000</field>
+                        </block>
+                    </value>
+                </block>
+            </block>
+            <block type="smartServo_hand_shake">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+        </category>
+
+        <category name="事件" class="category_event">
+            <block type="tablet_shaked"></block>
+            <block type="tablet_tilt_lr"></block>
+            <block type="tablet_tilt_fb"></block>
+            <block type="event_switch_changed"></block>
+            <block type="event_button_changed"></block>
+        </category>
+
+            <category name="探測" class="category_detect">
+            <block type="detect_get_slider_value"></block>
+            <block type="detect_infrared_receiver">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_temperature">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_temperature_humidity">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_1_key_button_state">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_accelerometer_gyro">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_lightness">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_limit_switch">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="detect_pir_motion_sensor">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_ultrasonic">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_potentiometer">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_volume">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+            <block type="detect_pressure">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="detect_grayscale">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="detect_stepper_motor_pos">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="detect_switch">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <block type="detect_touch_sensor">
+                <value name="INDEX">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+
+            <!-- 磁编码舵机相关 -->
+            <block type="detect_smartServo_angle">
+                <value name="ID">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+            </block>
+        </category>
+
+        <category name="數學" class="category_math">
+            <block type="math_arithmetic"></block>
+            <block type="logic_compare"></block>
+            <block type="logic_operation"></block>
+            <block type="logic_negate"></block>
+            <block type="logic_boolean"></block>
+            <block type="math_number"></block>
+            <block type="math_number_list"></block>
+            <block type="math_change"></block>
+            <block type="variables_set"></block>
+            <block type="variables_get"></block>
+            <block type="math_number_property"></block>
+            <block type="math_round"></block>
+
+            <block type="math_modulo">
+                <value name="DIVIDEND">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="DIVISOR">
+                    <block type="math_number">
+                        <field name="NUM">10</field>
+                    </block>
+                </value>
+            </block>
+            <block type="math_random_float"></block>
+            <block type="math_random_int">
+                <value name="FROM">
+                    <block type="math_number">
+                        <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="TO">
+                    <block type="math_number">
+                        <field name="NUM">10</field>
+                    </block>
+                </value>
+            </block>
+            <block type="colour_picker"></block>
+        </category>
+
+
+        <category name="控制" class="category_control">
+            <block type="controls_if"></block>
+            <block type="controls_if">
+              <mutation else="1"></mutation>
+            </block>
+            <block type="wait">
+              <value name="DELAY">
+                  <block type="math_number">
+                      <field name="NUM">1</field>
+                  </block>
+              </value>
+            </block>
+            <block type="wait_until"></block>
+            <block type="controls_repeat_forever"></block>
+            <block type="controls_repeat_ext">
+                <value name="TIMES">
+                    <block type="math_number">
+                      <field name="NUM">10</field>
+                    </block>
+              </value>
+            </block>
+            <block type="controls_whileUntil"></block>
+            <block type="controls_for">
+                <value name="FROM">
+                    <block type="math_number">
+                      <field name="NUM">1</field>
+                    </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+            </block>
+            <!-- <block type="controls_forEach"></block> -->
+            <block type="controls_flow_statements"></block>
+        </category>
+    </xml>
+</body>
+</html>

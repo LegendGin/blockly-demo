@@ -1,0 +1,16 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="when_slider_changed" id=":a1f{7]eP5]!Fde}2CoO" x="38" y="13"></block>
+  <block type="when_start" id="5qWg[oYGF#]MtAqXfpc-" x="288" y="13"></block>
+  <block type="when_button_pressed_down" id="DM-QDLV+08.FHjNt3Rb(" x="38" y="63"></block>
+  <block type="when_button_pressed_up" id="#Z|X]!HabUO~EPhQjog4" x="38" y="113"></block>
+  <block type="when_switch_on" id="X%TL`Vs)#kq*ghPx+@,U" x="38" y="163"></block>
+  <block type="when_switch_off" id="t3Ci/pp-Z;cEFmdBhiTr" x="38" y="213"></block>
+  <block type="when_dpad_top_down" id="A3Lon7:T6Tb1[mArprha" x="38" y="263"></block>
+  <block type="when_dpad_bottom_down" id=";{jJBQ_18hX5Q25]e%Hp" x="38" y="313"></block>
+  <block type="when_dpad_left_down" id="1fOWE!.-/HOK:^;xFuZ/" x="38" y="363"></block>
+  <block type="when_dpad_right_down" id="UCP?Q_gPYYSJV^^mOv;r" x="38" y="413"></block>
+  <block type="when_dpad_top_up" id="|_^7i9uq)Jb[83]n0KYu" x="38" y="463"></block>
+  <block type="when_dpad_bottom_up" id="X]H{EPF@jaI?TKF)X#]e" x="38" y="513"></block>
+  <block type="when_dpad_left_up" id="tcJbgRgmC#2Is64tl{hi" x="38" y="563"></block>
+  <block type="when_dpad_right_up" id="l!L74~`e09ndw}s_f1+)" x="38" y="613"></block>
+</xml>

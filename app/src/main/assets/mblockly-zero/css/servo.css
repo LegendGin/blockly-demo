@@ -1,0 +1,15 @@
+.header {
+    height: 80px;
+    line-height: 80px;
+    font-size: 24px;
+    color: #fff;
+    background: #27c6db;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+input {
+    color: #000!important;
+    width: 60px;
+    text-align: center;
+}

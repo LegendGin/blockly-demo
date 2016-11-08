@@ -1,0 +1,15 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="controls_if" id="A^esl./MiG^/S]w|Pl@0" x="-62" y="13"></block>
+  <block type="logic_compare" id="z+`?Oxt*:B+-wX|-q}=A" x="-62" y="88">
+    <field name="OP">EQ</field>
+  </block>
+  <block type="logic_operation" id="I)c*|plQ2?3LTati0kI1" x="-62" y="138">
+    <field name="OP">AND</field>
+  </block>
+  <block type="logic_negate" id="0YVg6*ff@Zn2R:@CR@hR" x="-62" y="187"></block>
+  <block type="logic_boolean" id="0E#Dan0jj7Y%6a^=k?mu" x="-62" y="238">
+    <field name="BOOL">TRUE</field>
+  </block>
+  <block type="logic_null" id="PJ~fWe2(@6fUk1YBs|6x" x="-62" y="288"></block>
+  <block type="logic_ternary" id="w_V=*8F.kphZD=+nSap`" x="-62" y="338"></block>
+</xml>
