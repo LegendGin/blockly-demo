@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    app:id="@+id/relative_layout"
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    app:layout_width="match_parent"
+    app:layout_height="match_parent"
+    app:background="@drawable/bg">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/tv_title"
+        app:includeFontPadding="false"
+        app:layout_alignParentLeft="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="7%"
+        android:layout_marginLeftPercent="3%"
+        android:layout_marginRightPercent="5%"
+        android:layout_marginTopPercent="2%"
+        app:layout_width="match_parent"
+        app:maxLines="1"
+        app:text="@string/control_widget_led_color"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <FrameLayout
+        app:id="@+id/color_hoop_container"
+        app:layout_centerInParent="true"
+        app:layout_height="wrap_content"
+        android:layout_marginTopPercent="22%"
+        app:layout_width="wrap_content">
+
+        <ImageView
+            app:adjustViewBounds="true"
+            app:id="@+id/color_hoop"
+            app:layout_height="wrap_content"
+            app:layout_width="wrap_content"
+            app:src="@drawable/color_hoop"/>
+    </FrameLayout>
+</android.support.percent.PercentRelativeLayout>

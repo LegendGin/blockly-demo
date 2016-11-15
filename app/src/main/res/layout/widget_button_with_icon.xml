@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    app:layout_width="match_parent"
+    app:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <ImageView
+        app:id="@+id/layout_bg"
+        app:layout_height="match_parent"
+        android:layout_marginTopPercent="10%"
+        app:layout_width="match_parent"
+        app:src="@drawable/sel_wig_btn"/>
+
+    <com.gin.blockly_demo.FitHeightTextView
+        android:layout_heightPercent="25%"
+        android:layout_marginRightPercent="15%"
+        android:layout_marginTopPercent="35%"
+        android:layout_widthPercent="50%"
+        app:gravity="center"
+        app:id="@+id/tv_subTitle"
+        app:includeFontPadding="false"
+        app:layout_centerInParent="true"
+        app:layout_height="0dp"
+        app:layout_width="0dp"
+        app:maxLines="1"
+        app:text="BUTTON"
+        app:textColor="@android:color/white"
+        app:textSize="100sp"
+        app:textStyle="bold"/>
+</android.support.percent.PercentRelativeLayout>

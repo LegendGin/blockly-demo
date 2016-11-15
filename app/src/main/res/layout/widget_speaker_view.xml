@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout app:background="@drawable/bg"
+                                               app:layout_height="match_parent"
+                                               app:layout_width="match_parent"
+                                               xmlns:android="http://schemas.android.com/apk/res-auto"
+                                               xmlns:app="http://schemas.android.com/apk/res/android">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/tv_title"
+        app:includeFontPadding="false"
+        app:layout_alignParentLeft="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="10.4%"
+        android:layout_marginLeftPercent="5%"
+        android:layout_marginRightPercent="5%"
+        android:layout_marginTopPercent="8.3%"
+        app:layout_width="match_parent"
+        app:maxLines="1"
+        app:text="语音模块"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <android.support.percent.PercentRelativeLayout
+        app:layout_alignParentBottom="true"
+        app:layout_below="@+id/tv_title"
+        app:layout_centerHorizontal="true"
+        app:layout_height="match_parent"
+        android:layout_heightPercent="60%"
+        android:layout_marginLeftPercent="15%"
+        android:layout_marginRightPercent="15%"
+        app:layout_width="match_parent">
+
+        <ImageView
+            app:id="@+id/widget_speaker_image_bg"
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:src="@drawable/speaker_bg_outter_on"/>
+
+        <ImageView
+            app:id="@+id/widget_speaker_image_rotate_a"
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:src="@drawable/speaker_rotate_a"/>
+
+        <ImageView
+            app:id="@+id/widget_speaker_image_rotate_b"
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:src="@drawable/speaker_rotate_b"/>
+
+        <ImageView
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:src="@drawable/speaker_bg_inner"/>
+
+        <ImageView
+            app:id="@+id/widget_speaker_mic"
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:src="@drawable/speaker_mic_on"/>
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

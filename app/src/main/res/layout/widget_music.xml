@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    app:layout_width="match_parent"
+    app:layout_height="match_parent"
+    app:background="@drawable/bg"
+    app:orientation="vertical">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:id="@+id/tv_title"
+        app:layout_width="match_parent"
+        app:layout_height="0dp"
+        app:layout_alignParentLeft="true"
+        android:layout_heightPercent="10.4%"
+        android:layout_marginLeftPercent="3%"
+        android:layout_marginRightPercent="2%"
+        android:layout_marginTopPercent="5.3%"
+        app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:includeFontPadding="false"
+        app:maxLines="1"
+        app:text="@string/control_widget_music"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <LinearLayout
+        app:layout_width="match_parent"
+        app:layout_height="match_parent"
+        android:layout_marginLeftPercent="3%"
+        android:layout_marginRightPercent="3%"
+        android:layout_marginTopPercent="20%"
+        app:orientation="horizontal">
+
+        <ImageView
+            app:id="@+id/key_do"
+            app:layout_width="0dp"
+            app:layout_height="wrap_content"
+            app:layout_weight="1.0"
+            app:adjustViewBounds="true"
+            app:src="@drawable/selector_music_do"/>
+
+        <ImageView
+            app:id="@+id/key_re"
+            app:layout_width="0dp"
+            app:layout_height="wrap_content"
+            app:layout_weight="1.0"
+            app:adjustViewBounds="true"
+            app:src="@drawable/selector_music_re"/>
+
+        <ImageView
+            app:id="@+id/key_mi"
+            app:layout_width="0dp"
+            app:layout_height="wrap_content"
+            app:layout_weight="1.0"
+            app:adjustViewBounds="true"
+            app:src="@drawable/selector_music_mi"/>
+
+        <ImageView
+            app:id="@+id/key_fa"
+            app:layout_width="0dp"
+            app:layout_height="wrap_content"
+            app:layout_weight="1.0"
+            app:adjustViewBounds="true"
+            app:src="@drawable/selector_music_fa"/>
+
+        <ImageView
+            app:id="@+id/key_sol"
+            app:layout_width="0dp"
+            app:layout_height="wrap_content"
+            app:layout_weight="1.0"
+            app:adjustViewBounds="true"
+            app:src="@drawable/selector_music_sol"/>
+
+        <ImageView
+            app:id="@+id/key_la"
+            app:layout_width="0dp"
+            app:layout_height="wrap_content"
+            app:layout_weight="1.0"
+            app:adjustViewBounds="true"
+            app:src="@drawable/selector_music_la"/>
+
+        <ImageView
+            app:id="@+id/key_si"
+            app:layout_width="0dp"
+            app:layout_height="wrap_content"
+            app:layout_weight="1.0"
+            app:adjustViewBounds="true"
+            app:src="@drawable/selector_music_si"/>
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>

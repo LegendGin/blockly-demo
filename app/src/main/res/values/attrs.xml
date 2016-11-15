@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CellLayout">
+        <attr name="cell_height_count" format="integer">
+            <flag name="cell_height_count" value="4"/>
+        </attr>
+        <attr name="cell_width_count" format="integer">
+            <flag name="cell_width_count" value="4"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CellView">
+        <attr name="cell_width" format="integer">
+            <flag name="cell_width" value="4"/>
+        </attr>
+        <attr name="cell_height" format="integer">
+            <flag name="cell_height" value="4"/>
+        </attr>
+        <attr name="cell_x" format="integer">
+            <flag name="cell_x" value="4"/>
+        </attr>
+        <attr name="cell_y" format="integer">
+            <flag name="cell_y" value="4"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="Slider">
+        <attr name="min" format="integer">
+            <flag name="min" value="4"/>
+        </attr>
+        <attr name="max" format="integer">
+            <flag name="max" value="4"/>
+        </attr>
+        <attr name="value" format="integer">
+            <flag name="value" value="4"/>
+        </attr>
+    </declare-styleable>
+</resources>
