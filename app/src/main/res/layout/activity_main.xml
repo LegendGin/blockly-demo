@@ -2,13 +2,10 @@
 <RelativeLayout
     android:id="@+id/activity_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.gin.blockly_demo.MainActivity">
 
     <Button
@@ -16,5 +13,84 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="edit"/>
+
+    <android.support.percent.PercentFrameLayout
+        android:id="@+id/panel_drag_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/save">
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/panel_img_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sel_cell_layout_gird"
+                app:cell_height_count="16"
+                app:cell_width_count="32"
+                />
+
+            <com.gin.blockly_demo.CellLayout
+                android:id="@+id/panel_cell_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cell_height_count="@integer/cell_height_count"
+                app:cell_width_count="@integer/cell_width_count"/>
+
+            <LinearLayout
+                android:id="@+id/panel_linLayout_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                app:layout_widthPercent="31.64%">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="458.0"
+                    android:background="#ff2b2e34"
+                    android:orientation="vertical"
+                    android:weightSum="6.0">
+
+                    <android.support.percent.PercentRelativeLayout
+                        android:id="@+id/relative_layout_tab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5.2"
+                        android:orientation="vertical"/>
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="190.0">
+
+                    <LinearLayout
+                        android:id="@+id/panel_linLayout_tap2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+                </ScrollView>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/left_img_panel_visibility_img"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                app:layout_aspectRatio="100%"
+                android:layout_height="wrap_content"
+                app:layout_marginBottomPercent="1.95%"
+                app:layout_marginLeftPercent="1.95%"
+                android:layout_width="wrap_content"
+                app:layout_widthPercent="5.37%"
+                android:src="@drawable/selector_img_btn_operation"/>
+        </android.support.percent.PercentRelativeLayout>
+    </android.support.percent.PercentFrameLayout>
+
 
 </RelativeLayout>

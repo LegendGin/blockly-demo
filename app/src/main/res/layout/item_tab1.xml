@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout app:layout_height="match_parent"
+                                               app:layout_width="match_parent"
+                                               xmlns:android="http://schemas.android.com/apk/res-auto"
+                                               xmlns:app="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        app:id="@+id/img_icon"
+        android:layout_aspectRatio="100%"
+        app:layout_centerHorizontal="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="45%"
+        android:layout_marginBottomPercent="10%"
+        android:layout_marginTopPercent="15%"
+        app:layout_width="match_parent"
+        app:src="@mipmap/ic_launcher"/>
+
+    <com.gin.blockly_demo.AutoResizeTextView
+        app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/tv_name"
+        app:includeFontPadding="false"
+        app:layout_alignParentLeft="true"
+        app:layout_below="@+id/img_icon"
+        app:layout_centerHorizontal="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="20%"
+        app:layout_width="match_parent"
+        app:maxLines="1"
+        app:text="Move"
+        app:textSize="100sp"/>
+</android.support.percent.PercentRelativeLayout>

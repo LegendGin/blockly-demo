@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    app:background="@drawable/joystick_bg"
+    app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+    app:layout_height="match_parent"
+    app:layout_width="match_parent"
+    app:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/android">
+
+<ImageView
+        app:id="@+id/img_left"
+        app:layout_alignParentLeft="true"
+        android:layout_aspectRatio="100%"
+        app:layout_centerVertical="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="12%"
+        android:layout_marginLeftPercent="5%"
+        app:layout_width="0dp"
+        app:scaleType="fitCenter"
+        app:src="@drawable/sel_wig_joystick_left"/>
+
+    <ImageView
+        app:id="@+id/img_top"
+        android:layout_aspectRatio="100%"
+        app:layout_centerHorizontal="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="12%"
+        android:layout_marginTopPercent="5%"
+        app:layout_width="0dp"
+        app:scaleType="fitCenter"
+        app:src="@drawable/sel_wig_joystick_top"/>
+
+    <ImageView
+        app:id="@+id/img_right"
+        app:layout_alignParentRight="true"
+        android:layout_aspectRatio="100%"
+        app:layout_centerVertical="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="12%"
+        android:layout_marginRightPercent="5%"
+        app:layout_width="0dp"
+        app:scaleType="fitCenter"
+        app:src="@drawable/sel_wig_joystick_right"/>
+
+    <ImageView
+        app:id="@+id/img_bottom"
+        app:layout_alignParentBottom="true"
+        android:layout_aspectRatio="100%"
+        app:layout_centerHorizontal="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="12%"
+        android:layout_marginBottomPercent="5%"
+        app:layout_width="0dp"
+        app:scaleType="fitCenter"
+        app:src="@drawable/sel_wig_joystick_bottom"/>
+
+    <ImageView
+        app:id="@+id/img_joystick"
+        android:layout_aspectRatio="100%"
+        app:layout_centerInParent="true"
+        app:layout_centerVertical="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="50%"
+        app:layout_width="0dp"
+        app:scaleType="fitCenter"
+        app:src="@drawable/sel_wig_joystick_center"/>
+</android.support.percent.PercentRelativeLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto"
+                                               xmlns:app="http://schemas.android.com/apk/res/android"
+                                               app:layout_width="match_parent"
+                                               app:layout_height="match_parent"
+                                               app:background="@drawable/bg">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:id="@+id/tv_title"
+        app:layout_width="match_parent"
+        app:layout_height="wrap_content"
+        app:layout_alignParentLeft="true"
+        android:layout_heightPercent="20.8%"
+        android:layout_marginLeftPercent="5%"
+        android:layout_marginRightPercent="5%"
+        android:layout_marginTopPercent="8.3%"
+        app:gravity="left"
+        app:includeFontPadding="false"
+        app:maxLines="1"
+        app:text="SWITCH"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <android.support.percent.PercentRelativeLayout
+        app:layout_width="match_parent"
+        app:layout_height="match_parent"
+        app:layout_alignParentBottom="true"
+        app:layout_below="@+id/tv_title"
+        app:layout_centerHorizontal="true">
+
+        <ImageView
+            app:id="@+id/bg_gray"
+            app:layout_width="match_parent"
+            app:layout_height="match_parent"
+            app:layout_centerVertical="true"
+            android:layout_heightPercent="50%"
+            android:layout_marginLeftPercent="18%"
+            android:layout_marginRightPercent="18%"
+            app:background="@drawable/bg_widget_value"/>
+
+        <com.gin.blockly_demo.AutoResizeTextView
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignLeft="@+id/bg_gray"
+            app:layout_centerVertical="true"
+            android:layout_heightPercent="30%"
+            android:layout_marginLeftPercent="5%"
+            android:layout_widthPercent="20%"
+            app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+            app:includeFontPadding="false"
+            app:maxLines="1"
+            app:text="OFF"
+            app:textColor="#636c77"
+            app:textSize="100sp"
+            app:textStyle="bold"/>
+
+        <com.gin.blockly_demo.AutoResizeTextView
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignRight="@+id/bg_gray"
+            app:layout_centerVertical="true"
+            android:layout_heightPercent="30%"
+            android:layout_marginRightPercent="5%"
+            android:layout_widthPercent="20%"
+            app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+            app:includeFontPadding="false"
+            app:maxLines="1"
+            app:text="ON"
+            app:textColor="#636c77"
+            app:textSize="100sp"
+            app:textStyle="bold"/>
+
+        <ImageView
+            app:id="@+id/img_icon_off"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignParentRight="true"
+            android:layout_aspectRatio="100%"
+            app:layout_centerVertical="true"
+            android:layout_heightPercent="100%"
+            android:layout_marginRightPercent="9%"
+            app:src="@drawable/sel_wig_switch_off"
+            app:visibility="visible"/>
+
+        <ImageView
+            app:id="@+id/img_icon_on"
+            app:layout_width="wrap_content"
+            app:layout_height="wrap_content"
+            app:layout_alignParentLeft="true"
+            android:layout_aspectRatio="100%"
+            app:layout_centerVertical="true"
+            android:layout_heightPercent="100%"
+            android:layout_marginLeftPercent="9%"
+            app:src="@drawable/sel_wig_switch_on"
+            app:visibility="visible"/>
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

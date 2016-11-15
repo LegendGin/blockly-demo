@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout app:background="@drawable/bg"
+                                               app:layout_height="match_parent"
+                                               app:layout_width="match_parent"
+                                               xmlns:android="http://schemas.android.com/apk/res-auto"
+                                               xmlns:app="http://schemas.android.com/apk/res/android">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/tv_title"
+        app:includeFontPadding="false"
+        app:layout_centerHorizontal="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="6.25%"
+        android:layout_marginLeftPercent="8.3%"
+        android:layout_marginTopPercent="2.5%"
+        app:layout_width="match_parent"
+        app:lines="1"
+        app:text="电机"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <com.gin.blockly_demo.AutoResizeTextView
+        app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/slider_value"
+        app:includeFontPadding="false"
+        app:layout_below="@+id/tv_title"
+        app:layout_height="0dp"
+        android:layout_heightPercent="6.25%"
+        android:layout_marginLeftPercent="8.3%"
+        android:layout_marginTopPercent="2.5%"
+        app:layout_width="0dp"
+        android:layout_widthPercent="30%"
+        app:lines="1"
+        app:text="124"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <com.gin.blockly_demo.VerticalSeekBar
+        app:id="@+id/slider_vertical"
+        app:layout_height="0dp"
+        android:layout_heightPercent="70%"
+        android:layout_marginTopPercent="11%"
+        app:layout_width="match_parent"
+        app:max="100"
+        android:min="0"
+        app:value="0">
+
+        <ImageView
+            app:background="@drawable/slider_bar_ver"
+            app:id="@+id/thumb_ver_line"
+            app:layout_centerHorizontal="true"
+            app:layout_height="match_parent"
+            android:layout_marginBottomPercent="3%"
+            android:layout_marginTopPercent="3%"
+            app:layout_width="0dp"
+            android:layout_widthPercent="7.8%"/>
+
+        <ImageView
+            app:background="@drawable/slider_bar_ver_over"
+            app:id="@+id/thumb_ver_line_over"
+            app:layout_alignBottom="@+id/thumb_ver_line"
+            app:layout_alignLeft="@+id/thumb_ver_line"
+            app:layout_alignRight="@+id/thumb_ver_line"
+            app:layout_height="wrap_content"
+            app:layout_width="wrap_content"/>
+
+        <ImageView
+            app:id="@+id/thumb_ver_shadow_img"
+            android:layout_aspectRatio="56.67%"
+            app:layout_centerHorizontal="true"
+            app:layout_height="0dp"
+            app:layout_width="0dp"
+            app:scaleType="centerCrop"
+            app:src="@drawable/thumb_ver_shadow"/>
+
+        <ImageView
+            app:id="@+id/thumb_ver_img"
+            app:layout_alignBottom="@+id/thumb_ver_line"
+            android:layout_aspectRatio="51.1%"
+            app:layout_centerHorizontal="true"
+            app:layout_height="0dp"
+            app:layout_width="0dp"
+            android:layout_widthPercent="38%"
+            app:src="@drawable/thumb_ver"/>
+    </com.gin.blockly_demo.VerticalSeekBar>
+
+    <ImageView
+        app:background="#e8eef1"
+        app:id="@+id/img_icon"
+        app:layout_alignParentBottom="true"
+        android:layout_aspectRatio="100%"
+        app:layout_centerHorizontal="true"
+        app:layout_height="0dp"
+        android:layout_marginBottomPercent="5%"
+        app:layout_width="0dp"
+        android:layout_widthPercent="50%"
+        app:scaleType="fitXY"
+        app:src="@drawable/pop_ups_icon_del"/>
+</android.support.percent.PercentRelativeLayout>

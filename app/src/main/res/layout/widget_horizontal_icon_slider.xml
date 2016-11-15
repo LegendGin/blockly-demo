@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    app:layout_width="match_parent"
+    app:layout_height="match_parent"
+    app:background="@drawable/bg">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/tv_title"
+        app:includeFontPadding="false"
+        app:layout_height="0dp"
+        android:layout_heightPercent="20.8%"
+        android:layout_marginLeftPercent="2.5%"
+        android:layout_marginTopPercent="8.3%"
+        app:layout_width="0dp"
+        android:layout_widthPercent="70%"
+        app:text="电机"
+        app:textColor="@android:color/black"
+        app:textSize="60sp"/>
+
+    <com.gin.blockly_demo.AutoResizeTextView
+        app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/slider_value"
+        app:includeFontPadding="false"
+        app:layout_alignParentRight="true"
+        app:layout_height="0dp"
+        android:layout_heightPercent="20.8%"
+        android:layout_marginRightPercent="2.5%"
+        android:layout_marginTopPercent="8.3%"
+        app:layout_width="0dp"
+        android:layout_widthPercent="20%"
+        app:text="0"
+        app:textColor="@android:color/black"
+        app:textSize="60sp"/>
+
+    <ImageView
+        app:background="#e8eef1"
+        app:id="@+id/img_icon"
+        app:layout_alignParentBottom="true"
+        android:layout_aspectRatio="100%"
+        app:layout_height="0dp"
+        android:layout_heightPercent="45%"
+        android:layout_marginBottomPercent="16.7%"
+        android:layout_marginLeftPercent="2.5%"
+        app:layout_width="0dp"
+        app:src="@drawable/pop_ups_icon_del"/>
+
+    <com.gin.blockly_demo.HorizontalSeekBar
+        app:id="@+id/horizontalSeekBar"
+        app:layout_alignBottom="@+id/img_icon"
+        app:layout_alignTop="@+id/img_icon"
+        app:layout_height="0dp"
+        app:layout_toRightOf="@+id/img_icon"
+        app:layout_width="match_parent"
+        app:max="100"
+        android:min="0"
+        app:value="0">
+
+        <ImageView
+            app:background="@drawable/slider_bar_hor"
+            app:id="@+id/thumb_hor_line"
+            app:layout_centerVertical="true"
+            app:layout_height="0dp"
+            android:layout_heightPercent="17%"
+            android:layout_marginLeftPercent="3.5%"
+            android:layout_marginRightPercent="3.5%"
+            app:layout_width="match_parent"/>
+
+        <ImageView
+            app:background="@drawable/slider_bar_hor_over_left"
+            app:id="@+id/thumb_hor_line_over"
+            app:layout_alignBottom="@+id/thumb_hor_line"
+            app:layout_alignLeft="@+id/thumb_hor_line"
+            app:layout_alignTop="@+id/thumb_hor_line"
+            app:layout_centerVertical="true"
+            app:layout_height="0dp"
+            app:layout_width="0dp"/>
+
+        <ImageView
+            app:id="@+id/thumb_hor_shadow_img"
+            android:layout_aspectRatio="142.4988%"
+            app:layout_centerVertical="true"
+            app:layout_height="0dp"
+            app:layout_width="0dp"
+            app:scaleType="centerCrop"
+            app:src="@drawable/thumb_hor_shadow"/>
+
+        <ImageView
+            app:id="@+id/thumb_hor_img"
+            android:layout_aspectRatio="195.6482%"
+            app:layout_centerVertical="true"
+            app:layout_height="0dp"
+            android:layout_heightPercent="70%"
+            app:layout_marginLeft="50dp"
+            app:layout_width="0dp"
+            app:src="@drawable/thumb_hor"/>
+    </com.gin.blockly_demo.HorizontalSeekBar>
+</android.support.percent.PercentRelativeLayout>
