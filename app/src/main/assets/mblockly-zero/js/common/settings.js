@@ -8,7 +8,7 @@ MBlockly = MBlockly || {};
 
 MBlockly.Settings = {
     // DEBUG MODE
-    DEBUG: false,
+    DEBUG: true,
 
     // whether open console.log
     OPEN_LOG: false,

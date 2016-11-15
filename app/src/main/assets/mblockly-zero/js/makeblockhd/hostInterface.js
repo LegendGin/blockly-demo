@@ -132,7 +132,7 @@ extend(MBlockly.HostInterface, {
         } else {
             // in debug mode
             data = MBlockly.Data.mockData;
-
+            console.log(data);
             if($('.test-area')) {
                 $('.test-area').show();
             }

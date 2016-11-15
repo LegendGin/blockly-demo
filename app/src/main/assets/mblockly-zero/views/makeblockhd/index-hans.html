@@ -71,6 +71,12 @@
     <script src="../../js/makeblockhd/control.js"></script>
     <script src="../../js/makeblockhd/action.js"></script>
     <script src="../../js/makeblockhd/hostInterface.js"></script>
+    <script>
+        function load() {
+            var runtime = new MBlockly.Runtime(2);
+            runtime.doInterpreter("alert('hello')");
+        }
+    </script>
 </head>
 <body>
     <div class="scene stage">
@@ -82,10 +88,10 @@
                     <ul id="scroller" class="owl-carousel">
                     </ul>
                 </div>
-                <div class="arrow arrow-right"></div>
+                <button onclick="MBlockly.HostInterface.sendWidgetValue(2,1);" value="dash" style="height:100%">dash</button>
+                <!--<div class="arrow arrow-right"></div>-->
             </div>
         </div>
-
         <!-- board warpper -->
         <div id="board-wrapper">
             <!-- menu left -->

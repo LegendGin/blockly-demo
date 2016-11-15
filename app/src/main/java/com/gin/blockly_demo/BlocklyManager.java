@@ -12,7 +12,8 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
 public class BlocklyManager {
-    private static String BLOCKLY_HTML_PATH = "file:///android_asset/mblockly-zero/views/makeblockhd/index.html";
+    private static String BLOCKLY_HTML_PATH = "file:///android_asset/blockly-demo/ruitel/index.html";
+    //private static String BLOCKLY_HTML_PATH = "file:///android_asset/mblockly-zero/views/makeblockhd/index.html";
     private static final String JS_PREFIX = "javascript:receiveDeviceData";
     private static final String PREFIX = "receiveDeviceData";
     private static final String TAG = "BlocklyManager";

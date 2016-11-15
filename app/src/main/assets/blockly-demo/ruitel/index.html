@@ -1,0 +1,148 @@
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Blockly Demo: Fixed Blockly</title>
+    <script src="../blockly_compressed.js"></script>
+    <script src="../blocks_compressed.js"></script>
+    <script src="../javascript_compressed.js"></script>
+    <script src="../msg/js/en.js"></script>
+    <script src="../jquery-3.1.1.js"></script>
+    <script src="../acorn_interpreter.js"></script>
+    <!--customized block-->
+    <script src="calculate.js"></script>
+    <script src="move.js"></script>
+
+    <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+      width: 100%;
+      height: 100%;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<p>
+    <button onclick="runJS()">run code</button>
+    <button onclick="showCode()">show code</button>
+</p>
+<div id="workspace">
+    <div id="blocklyDiv" style="height: 480px; width: 600px;float:left;"></div>
+    <div id="codeDiv" style="height: 480px; width: 300px; gray;float:left;border:1px solid gray;">
+        <p id="content">hello</p>
+    </div>
+</div>
+
+
+<xml id="toolbox" style="display: none">
+    <category name="Control">
+        <block type="controls_if"></block>
+    </category>
+    <category name="Logic">
+        <block type="logic_compare"></block>
+        <block type="controls_repeat_ext"></block>
+        <block type="math_number"></block>
+        <block type="math_arithmetic"></block>
+        <block type="text"></block>
+        <block type="text_print"></block>
+    </category>
+    <category name="Custom">
+        <block type="move_forward"></block>
+        <block type="calculate"></block>
+    </category>
+</xml>
+
+<xml xmlns="http://www.w3.org/1999/xhtml" id="startBlocks" style="display:none">
+    <block type="text_print" x="-62" y="63">
+        <value name="TEXT">
+            <block type="calculate">
+                <field name="operator">add</field>
+                <value name="param1">
+                    <block type="math_number">
+                        <field name="NUM">10</field>
+                    </block>
+                </value>
+                <value name="param2">
+                    <block type="math_number">
+                        <field name="NUM">50</field>
+                    </block>
+                </value>
+            </block>
+        </value>
+        <next>
+            <block type="move_forward">
+                <field name="direction">north</field>
+                <value name="step">
+                    <block type="math_number">
+                        <field name="NUM">10</field>
+                    </block>
+                </value>
+            </block>
+        </next>
+    </block>
+</xml>
+
+<script>
+
+    var workspace = Blockly.inject('blocklyDiv',
+        {media: '../media/',
+         toolbox: document.getElementById('toolbox')});
+	  Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),
+                               workspace);
+      
+
+
+	function runJS() {
+		// Generate JavaScript code and run it.
+      
+	  /*window.LoopTrap = 1000;
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (&#45;&#45;window.LoopTrap == 0) throw "Infinite loop.";\n';
+	  var code = Blockly.JavaScript.workspaceToCode(workspace);
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+	  
+      try {
+        eval(code);
+      } catch (e) {
+        alert(e);
+      }*/
+      var myCode = 'alert(\'hello\');';
+       var initFunc = function(interpreter, scope) {
+      interpreter.setProperty(scope, 'url',
+          interpreter.createPrimitive(location.toString()));
+
+      var wrapper = function(text) {
+        text = text ? text.toString() : '';
+        return interpreter.createPrimitive(console.log(text));
+      };
+      interpreter.setProperty(scope, 'alert',
+          interpreter.createNativeFunction(wrapper));
+    };
+      var myInterpreter = new Interpreter(myCode, initFunc);
+      myInterpreter.run();
+	}
+
+	function showCode() {
+		window.LoopTrap = 1000;
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = 'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+	  var code = Blockly.JavaScript.workspaceToCode(workspace);
+      Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+		$("#content").html(code);
+	}
+
+</script>
+
+</body>
+</html>

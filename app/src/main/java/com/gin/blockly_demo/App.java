@@ -14,7 +14,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = this;
-        BlocklyManager.initBlocklyHtmlPathByLocalLanguage(this);
+        //BlocklyManager.initBlocklyHtmlPathByLocalLanguage(this);
     }
 
     public static Context getContext() {
