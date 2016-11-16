@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout app:background="@drawable/bg"
+                                               app:layout_height="match_parent"
+                                               app:layout_width="match_parent"
+                                               xmlns:android="http://schemas.android.com/apk/res-auto"
+                                               xmlns:app="http://schemas.android.com/apk/res/android">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/tv_title"
+        app:includeFontPadding="false"
+        app:layout_alignParentLeft="true"
+        app:layout_height="wrap_content"
+        android:layout_heightPercent="10.4%"
+        android:layout_marginLeftPercent="5%"
+        android:layout_marginRightPercent="5%"
+        android:layout_marginTopPercent="4.2%"
+        app:layout_width="match_parent"
+        app:maxLines="1"
+        app:text="电机"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <com.gin.blockly_demo.CircleProgressView
+        app:id="@+id/circleProgressView"
+        android:layout_aspectRatio="100%"
+        app:layout_below="@+id/tv_title"
+        app:layout_centerHorizontal="true"
+        app:layout_height="wrap_content"
+        android:layout_heightPercent="75%"
+        android:layout_marginLeftPercent="12.5%"
+        android:layout_marginTopPercent="12.5%"
+        app:layout_width="wrap_content"
+        app:progress="0"/>
+</android.support.percent.PercentRelativeLayout>

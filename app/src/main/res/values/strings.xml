@@ -2,5 +2,7 @@
     <string name="app_name">Blockly_demo</string>
     <string name="control_widget_led_color">LED COLOR</string>
     <string name="control_widget_music">MUSIC</string>
-
+    <string name="project_delete">删除</string>
+    <string name="control_code">编程</string>
+    <string name="control_port">端口</string>
 </resources>
