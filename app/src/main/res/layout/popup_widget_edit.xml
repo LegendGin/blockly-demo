@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res-auto"
+                                               xmlns:app="http://schemas.android.com/apk/res/android"
+                                               app:layout_width="match_parent"
+                                               app:layout_height="match_parent">
+
+    <android.support.percent.PercentRelativeLayout
+        app:id="@+id/layout_content"
+        app:layout_width="wrap_content"
+        app:layout_height="wrap_content"
+        app:layout_centerInParent="true"
+        app:background="#ffffffff"
+        android:layout_heightPercent="93%"
+        android:layout_widthPercent="93%">
+
+        <android.support.percent.PercentRelativeLayout
+            app:id="@+id/layout_rename"
+            app:layout_width="match_parent"
+            app:layout_height="wrap_content"
+            app:layout_centerHorizontal="true"
+            android:layout_heightPercent="20%"
+            android:layout_marginLeftPercent="15%"
+            android:layout_marginTopPercent="6.6%">
+
+            <ImageView
+                app:id="@+id/img_rename"
+                app:layout_width="wrap_content"
+                app:layout_height="wrap_content"
+                app:layout_alignParentRight="true"
+                app:layout_centerVertical="true"
+                app:background="@android:color/darker_gray"
+                app:scaleType="fitCenter"
+                app:src="@drawable/pop_ups_icon_edit"
+                android:layout_aspectRatio="100%"
+                android:layout_heightPercent="60%"
+                android:layout_marginRightPercent="5%"/>
+
+            <com.gin.blockly_demo.FitHeightTextView
+                app:id="@+id/tv_widgetName"
+                app:layout_width="match_parent"
+                app:layout_height="wrap_content"
+                app:layout_centerVertical="true"
+                android:layout_heightPercent="60%"
+                app:layout_toLeftOf="@+id/img_rename"
+                app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+                app:includeFontPadding="false"
+                app:maxLines="1"
+                app:text="Port"
+                app:textColor="@android:color/black"
+                app:textSize="100sp"/>
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            app:id="@+id/layout_port"
+            app:layout_width="match_parent"
+            app:layout_height="wrap_content"
+            app:layout_below="@+id/layout_rename"
+            app:layout_centerHorizontal="true"
+            app:background="@drawable/selector_wid_edit_port"
+            android:layout_heightPercent="20%"
+            android:layout_marginLeftPercent="15%"
+            android:layout_marginTopPercent="3.3%">
+
+            <ImageView
+                app:id="@+id/img_port"
+                app:layout_width="wrap_content"
+                app:layout_height="wrap_content"
+                app:layout_centerVertical="true"
+                app:scaleType="fitCenter"
+                app:src="@drawable/pop_ups_port_icon"
+                android:layout_aspectRatio="100%"
+                android:layout_heightPercent="60%"
+                android:layout_marginLeftPercent="15%"/>
+
+            <com.gin.blockly_demo.AutoResizeTextView
+                app:layout_width="match_parent"
+                app:layout_height="wrap_content"
+                app:layout_centerVertical="true"
+                android:layout_heightPercent="50%"
+                android:layout_marginLeftPercent="10%"
+                app:layout_toRightOf="@+id/img_port"
+                app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+                app:maxLines="1"
+                app:text="@string/control_port"
+                app:textColor="@android:color/white"
+                app:textSize="100sp"/>
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            app:id="@+id/layout_code"
+            app:layout_width="match_parent"
+            app:layout_height="wrap_content"
+            app:layout_below="@+id/layout_port"
+            app:layout_centerHorizontal="true"
+            app:background="@drawable/selector_wid_edit_code"
+            android:layout_heightPercent="20%"
+            android:layout_marginLeftPercent="15%"
+            android:layout_marginTopPercent="3.3%">
+
+            <ImageView
+                app:id="@+id/img_code"
+                app:layout_width="wrap_content"
+                app:layout_height="wrap_content"
+                app:layout_centerVertical="true"
+                app:scaleType="fitCenter"
+                app:src="@drawable/pop_ups_icon_port"
+                android:layout_aspectRatio="100%"
+                android:layout_heightPercent="60%"
+                android:layout_marginLeftPercent="15%"/>
+
+            <com.gin.blockly_demo.AutoResizeTextView
+                app:layout_width="match_parent"
+                app:layout_height="wrap_content"
+                app:layout_centerVertical="true"
+                android:layout_heightPercent="50%"
+                android:layout_marginLeftPercent="10%"
+                app:layout_toRightOf="@+id/img_code"
+                app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+                app:maxLines="1"
+                app:text="@string/control_code"
+                app:textColor="@android:color/white"
+                app:textSize="100sp"/>
+        </android.support.percent.PercentRelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            app:id="@+id/layout_delete"
+            app:layout_width="match_parent"
+            app:layout_height="wrap_content"
+            app:layout_below="@+id/layout_code"
+            app:layout_centerHorizontal="true"
+            app:background="@drawable/selector_wid_edit_del"
+            android:layout_heightPercent="20%"
+            android:layout_marginLeftPercent="15%"
+            android:layout_marginTopPercent="3.3%">
+
+            <ImageView
+                app:id="@+id/img_del"
+                app:layout_width="wrap_content"
+                app:layout_height="wrap_content"
+                app:layout_centerVertical="true"
+                app:scaleType="fitCenter"
+                app:src="@drawable/pop_ups_icon_del"
+                android:layout_aspectRatio="100%"
+                android:layout_heightPercent="60%"
+                android:layout_marginLeftPercent="15%"/>
+
+            <com.gin.blockly_demo.AutoResizeTextView
+                app:layout_width="match_parent"
+                app:layout_height="wrap_content"
+                app:layout_centerVertical="true"
+                android:layout_heightPercent="50%"
+                android:layout_marginLeftPercent="10%"
+                app:layout_toRightOf="@+id/img_del"
+                app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+                app:maxLines="1"
+                app:text="@string/project_delete"
+                app:textColor="@android:color/white"
+                app:textSize="100sp"/>
+        </android.support.percent.PercentRelativeLayout>
+    </android.support.percent.PercentRelativeLayout>
+
+    <ImageView
+        app:id="@+id/arrow_right"
+        app:layout_width="wrap_content"
+        app:layout_height="wrap_content"
+        app:layout_centerVertical="true"
+        app:layout_toRightOf="@+id/layout_content"
+        app:scaleType="fitXY"
+        app:src="@drawable/arrow_right"
+        android:layout_aspectRatio="100%"
+        android:layout_widthPercent="7%"/>
+
+    <ImageView
+        app:id="@+id/arrow_left"
+        app:layout_width="wrap_content"
+        app:layout_height="wrap_content"
+        app:layout_centerVertical="true"
+        app:layout_toLeftOf="@+id/layout_content"
+        app:scaleType="fitXY"
+        app:src="@drawable/arrow_left"
+        android:layout_aspectRatio="100%"
+        android:layout_widthPercent="7%"/>
+
+    <ImageView
+        app:id="@+id/arrow_top"
+        app:layout_width="wrap_content"
+        app:layout_height="wrap_content"
+        app:layout_above="@+id/layout_content"
+        app:layout_centerHorizontal="true"
+        app:scaleType="fitXY"
+        app:src="@drawable/arrow_top"
+        android:layout_aspectRatio="100%"
+        android:layout_widthPercent="7%"/>
+
+    <ImageView
+        app:id="@+id/arrow_bottom"
+        app:layout_width="wrap_content"
+        app:layout_height="wrap_content"
+        app:layout_below="@+id/layout_content"
+        app:layout_centerHorizontal="true"
+        app:scaleType="fitXY"
+        app:src="@drawable/arrow_bottom"
+        android:layout_aspectRatio="100%"
+        android:layout_widthPercent="7%"/>
+</android.support.percent.PercentRelativeLayout>

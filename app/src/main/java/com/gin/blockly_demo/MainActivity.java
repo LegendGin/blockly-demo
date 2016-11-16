@@ -1,6 +1,7 @@
 package com.gin.blockly_demo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Point;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
     private Boolean left_isHiding = false;
     private Boolean left_isShowing = false;
     private boolean isEnterBlockly;
-    private int currentMode = -1;
+    private int currentMode = 2;
     private int count = 20;
     private int lastTabPivotY = 0;
     private int left_ani_delayedTime = 1;
@@ -82,10 +83,10 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 102:
-                    MainActivity.this.showLeftPanel(true);
+                    showLeftPanel(true);
                     return;
                 case 103:
-                    MainActivity.this.hideLeftPanel(true);
+                    hideLeftPanel(true);
                     return;
                 default:
                     return;
@@ -103,113 +104,123 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
     private View.OnClickListener clickListener_widgets = new View.OnClickListener() {
         public void onClick(View v) {
             Log.e(TAG, "onClick");
-//            showEditPopupWindow((CellView) v);
+            showEditPopupWindow((CellView) v);
         }
     };
 
     private void showEditPopupWindow(final CellView cellView) {
-//        if (this.widgetEditPopupWindow == null) {
-//            this.widgetEditContentView = getLayoutInflater().inflate(R.layout.popup_widget_edit, null);
-//            this.widgetEditPopupWindow = new PopupWindow(this.widgetEditContentView, (int) (((float) DeviceManager.SCREEN_WIDTH) * 0.21972656f), (int) (((float) DeviceManager.SCREEN_WIDTH) * 0.21972656f), true);
-//            this.widgetEditPopupWindow.setTouchable(true);
-//            this.widgetEditPopupWindow.setOutsideTouchable(true);
-//            this.widgetEditPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
-//        }
-//        ((TextView) this.widgetEditContentView.findViewById(R.id.tv_widgetName)).setText(cellView.getWidgetData().name);
-//        this.widgetEditContentView.findViewById(R.id.layout_port).setEnabled(true);
-//        this.widgetEditContentView.findViewById(R.id.layout_code).setEnabled(true);
-//        if ((cellView instanceof JoystickView) || (cellView instanceof SpeakerView) || (cellView instanceof MusicKeyView)) {
-//            this.widgetEditContentView.findViewById(R.id.layout_port).setEnabled(false);
-//            this.widgetEditContentView.findViewById(R.id.layout_code).setEnabled(false);
-//        }
-//        if (TextUtils.isEmpty(cellView.getWidgetData().port)) {
-//            this.widgetEditContentView.findViewById(R.id.layout_port).setEnabled(false);
-//        }
-//        if (cellView instanceof ColorPickerView) {
-//            this.widgetEditContentView.findViewById(R.id.layout_port).setEnabled(true);
-//            this.widgetEditContentView.findViewById(R.id.layout_code).setEnabled(false);
-//        }
-//        this.widgetEditContentView.findViewById(R.id.layout_rename).setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Log.e(MainActivity.TAG, "layout_rename");
-//                MainActivity.this.widgetEditPopupWindow.dismiss();
-//                MainActivity.this.showRenameInputDialog(cellView);
-//            }
-//        });
-//        this.widgetEditContentView.findViewById(R.id.layout_port).setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Log.e(PanelActivity.TAG, "layout_port");
-//                MainActivity.this.showPortSelectWindow(cellView);
-//                MainActivity.this.widgetEditPopupWindow.dismiss();
-//            }
-//        });
-//        this.widgetEditContentView.findViewById(R.id.layout_code).setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Log.e(MainActivity.TAG, "显示blockly界面");
-//                MainActivity.this.widgetEditPopupWindow.dismiss();
-//                MainActivity.this.viewJump_showBlockly(cellView);
-//            }
-//        });
-//        this.widgetEditContentView.findViewById(R.id.layout_delete).setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Log.e(MainActivity.TAG, "layout_delete");
-//                MainActivity.this.widgetEditPopupWindow.dismiss();
-//                MainActivity.this.widgetDelete(cellView);
-//            }
-//        });
-//        int[] location = new int[2];
-//        cellView.getLocationOnScreen(location);
-//        int screenH = getWindowManager().getDefaultDisplay().getHeight();
-//        int screenW = getWindowManager().getDefaultDisplay().getWidth();
-//        int x = location[0] + ((cellView.getWidth() - this.widgetEditPopupWindow.getWidth()) / 2);
-//        int y = location[1] + cellView.getHeight();
-//        if (x < 0 || this.widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || this.widgetEditPopupWindow.getHeight() + y > screenH) {
-//            x = location[0] + ((cellView.getWidth() - this.widgetEditPopupWindow.getWidth()) / 2);
-//            y = location[1] - this.widgetEditPopupWindow.getHeight();
-//            if (x < 0 || this.widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || this.widgetEditPopupWindow.getHeight() + y > screenH) {
-//                x = location[0] - this.widgetEditPopupWindow.getWidth();
-//                y = location[1] + ((cellView.getHeight() - this.widgetEditPopupWindow.getHeight()) / 2);
-//                if (x < 0 || this.widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || this.widgetEditPopupWindow.getHeight() + y > screenH) {
-//                    x = location[0] + cellView.getWidth();
-//                    y = location[1] + ((cellView.getHeight() - this.widgetEditPopupWindow.getHeight()) / 2);
-//                    if (x < 0 || this.widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || this.widgetEditPopupWindow.getHeight() + y > screenH) {
-//                        this.widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.GONE);
-//                        this.widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.GONE);
-//                        this.widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.GONE);
-//                        this.widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.VISIBLE);
-//                        this.widgetEditPopupWindow.showAsDropDown(cellView);
-//                        return;
-//                    }
-//                    this.widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
-//                    this.widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
-//                    this.widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.VISIBLE);
-//                    this.widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.GONE);
-//                    this.widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.GONE);
-//                    this.widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.GONE);
-//                    return;
-//                }
-//                this.widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
-//                this.widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
-//                this.widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.GONE);
-//                this.widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.VISIBLE);
-//                this.widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.GONE);
-//                this.widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.GONE);
-//                return;
-//            }
-//            this.widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
-//            this.widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
-//            this.widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.GONE);
-//            this.widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.GONE);
-//            this.widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.GONE);
-//            this.widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.VISIBLE);
-//            return;
-//        }
-//        this.widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
-//        this.widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.GONE);
-//        this.widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.GONE);
-//        this.widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.VISIBLE);
-//        this.widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.GONE);
+        if (widgetEditPopupWindow == null) {
+            widgetEditContentView = getLayoutInflater().inflate(R.layout.popup_widget_edit, null);
+            widgetEditPopupWindow = new PopupWindow(widgetEditContentView, (int) (((float) DeviceManager.SCREEN_WIDTH) * 0.21972656f), (int) (((float) DeviceManager.SCREEN_WIDTH) * 0.21972656f), true);
+            widgetEditPopupWindow.setTouchable(true);
+            widgetEditPopupWindow.setOutsideTouchable(true);
+            widgetEditPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
+        }
+        ((TextView) widgetEditContentView.findViewById(R.id.tv_widgetName)).setText(cellView.getWidgetData().name);
+        widgetEditContentView.findViewById(R.id.layout_port).setEnabled(true);
+        widgetEditContentView.findViewById(R.id.layout_code).setEnabled(true);
+        if ((cellView instanceof JoystickView) || (cellView instanceof MusicKeyView)) {
+            widgetEditContentView.findViewById(R.id.layout_port).setEnabled(false);
+            widgetEditContentView.findViewById(R.id.layout_code).setEnabled(false);
+        }
+        if (TextUtils.isEmpty(cellView.getWidgetData().port)) {
+            widgetEditContentView.findViewById(R.id.layout_port).setEnabled(false);
+        }
+        if (cellView instanceof ColorPickerView) {
+            widgetEditContentView.findViewById(R.id.layout_port).setEnabled(true);
+            widgetEditContentView.findViewById(R.id.layout_code).setEnabled(false);
+        }
+        widgetEditContentView.findViewById(R.id.layout_rename).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e(MainActivity.TAG, "layout_rename");
+                widgetEditPopupWindow.dismiss();
+//                showRenameInputDialog(cellView);
+            }
+        });
+        widgetEditContentView.findViewById(R.id.layout_port).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e(MainActivity.TAG, "layout_port");
+//                showPortSelectWindow(cellView);
+                widgetEditPopupWindow.dismiss();
+            }
+        });
+        widgetEditContentView.findViewById(R.id.layout_code).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e(MainActivity.TAG, "显示blockly界面");
+                widgetEditPopupWindow.dismiss();
+                viewJump_showBlockly(cellView);
+            }
+        });
+        widgetEditContentView.findViewById(R.id.layout_delete).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e(MainActivity.TAG, "layout_delete");
+                widgetEditPopupWindow.dismiss();
+//                widgetDelete(cellView);
+            }
+        });
+        int[] location = new int[2];
+        cellView.getLocationOnScreen(location);
+        int screenH = getWindowManager().getDefaultDisplay().getHeight();
+        int screenW = getWindowManager().getDefaultDisplay().getWidth();
+        int x = location[0] + ((cellView.getWidth() - widgetEditPopupWindow.getWidth()) / 2);
+        int y = location[1] + cellView.getHeight();
+        if (x < 0 || widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || widgetEditPopupWindow.getHeight() + y > screenH) {
+            x = location[0] + ((cellView.getWidth() - widgetEditPopupWindow.getWidth()) / 2);
+            y = location[1] - widgetEditPopupWindow.getHeight();
+            if (x < 0 || widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || widgetEditPopupWindow.getHeight() + y > screenH) {
+                x = location[0] - widgetEditPopupWindow.getWidth();
+                y = location[1] + ((cellView.getHeight() - widgetEditPopupWindow.getHeight()) / 2);
+                if (x < 0 || widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || widgetEditPopupWindow.getHeight() + y > screenH) {
+                    x = location[0] + cellView.getWidth();
+                    y = location[1] + ((cellView.getHeight() - widgetEditPopupWindow.getHeight()) / 2);
+                    if (x < 0 || widgetEditPopupWindow.getWidth() + x > screenW || y < 0 || widgetEditPopupWindow.getHeight() + y > screenH) {
+                        widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.INVISIBLE);
+                        widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.INVISIBLE);
+                        widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.INVISIBLE);
+                        widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.VISIBLE);
+                        widgetEditPopupWindow.showAsDropDown(cellView);
+                        return;
+                    }
+                    widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
+                    widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
+                    widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.VISIBLE);
+                    widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.INVISIBLE);
+                    widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.INVISIBLE);
+                    widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.INVISIBLE);
+                    return;
+                }
+                widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
+                widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
+                widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.INVISIBLE);
+                widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.VISIBLE);
+                widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.INVISIBLE);
+                widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.INVISIBLE);
+                return;
+            }
+            widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
+            widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
+            widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.INVISIBLE);
+            widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.INVISIBLE);
+            widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.INVISIBLE);
+            widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.VISIBLE);
+            return;
+        }
+        widgetEditPopupWindow.showAtLocation(cellView, 0, x, y);
+        widgetEditContentView.findViewById(R.id.arrow_left).setVisibility(View.INVISIBLE);
+        widgetEditContentView.findViewById(R.id.arrow_right).setVisibility(View.INVISIBLE);
+        widgetEditContentView.findViewById(R.id.arrow_top).setVisibility(View.VISIBLE);
+        widgetEditContentView.findViewById(R.id.arrow_bottom).setVisibility(View.INVISIBLE);
     }
+
+    private void viewJump_showBlockly(CellView widget) {
+        Log.e(TAG, "viewJump_showBlockly");
+        BlocklyManager.getInstance().callWeb_switchToCodingPanel(widget.getWidgetData().widgetID);
+        Intent intent = new Intent(this, PanelActivity.class);
+        intent.putExtra("EXTRA_PROJECT_BEAN", currentProjectBean);
+        startActivity(intent);
+        isEnterBlockly = true;
+    }
+
 
 
     private void initTapsData(List<BoardGroupBean> boardGroupBeans) {
@@ -234,12 +245,12 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
         List<BoardGroupBean> boardGroupBeans = new ArrayList<>();
         initTapsData(boardGroupBeans);
         int size = boardGroupBeans.size();
-        this.relative_layout_tab.setClickable(false);
+        relative_layout_tab.setClickable(false);
         PercentRelativeLayout.LayoutParams layoutParams1 = new PercentRelativeLayout.LayoutParams(-1, 0);
         layoutParams1.getPercentLayoutInfo().heightPercent = 0.2f;
-        this.widgetMenuIndicator.setLayoutParams(layoutParams1);
-        this.widgetMenuIndicator.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.relative_layout_tab.addView(this.widgetMenuIndicator);
+        widgetMenuIndicator.setLayoutParams(layoutParams1);
+        widgetMenuIndicator.setScaleType(ImageView.ScaleType.FIT_XY);
+        relative_layout_tab.addView(widgetMenuIndicator);
         for (int i = 0; i < size; i++) {
             BoardGroupBean bean = (BoardGroupBean) boardGroupBeans.get(i);
             View tab = inflater.inflate(R.layout.item_tab1, null);
@@ -247,9 +258,9 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
             layoutParams.getPercentLayoutInfo().heightPercent = 0.2f;
             layoutParams.getPercentLayoutInfo().topMarginPercent = 0.2f * ((float) i);
             tab.setLayoutParams(layoutParams);
-            tab.setOnClickListener(this.clickListener_tap1);
+            tab.setOnClickListener(clickListener_tap1);
             tab.setTag(i);
-            this.relative_layout_tab.addView(tab);
+            relative_layout_tab.addView(tab);
             TextView tv_name = (TextView) tab.findViewById(R.id.tv_name);
             tv_name.setText(bean.groupName);
 //            tv_name.setTextAppearance(this, null);
@@ -309,21 +320,21 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
     }
 
     private void setLeftPanelTapsSelected(final int index) {
-        if (index < this.relative_layout_tab.getChildCount() && !this.relative_layout_tab.getChildAt(index + 1).isSelected()) {
-            this.left_linLayout_wdigetIcon.removeAllViews();
+        if (index < relative_layout_tab.getChildCount() && !relative_layout_tab.getChildAt(index + 1).isSelected()) {
+            left_linLayout_wdigetIcon.removeAllViews();
             ArrayList<WidgetData> widgets = addWidgetToLeft(index);
             final LinearLayout linLayout = new LinearLayout(this);
             linLayout.setOrientation(LinearLayout.VERTICAL);
-            linLayout.setLayoutParams(this.left_linLayoutParams_group);
-            this.left_linLayout_wdigetIcon.addView(linLayout);
+            linLayout.setLayoutParams(left_linLayoutParams_group);
+            left_linLayout_wdigetIcon.addView(linLayout);
             for (int j = 0; j < widgets.size(); j++) {
                 final CellView cellView = WidgetFactory.createCellView(this, (WidgetData) widgets.get(j), 0);
                 Log.e(TAG, j + "");
-                if (this.cellLayout.getHeight() == 0) {
-                    this.left_linLayout_wdigetIcon.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                if (cellLayout.getHeight() == 0) {
+                    left_linLayout_wdigetIcon.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
                         public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                            if (!MainActivity.this.isFinishing()) {
-                                MainActivity.this.addCellViewToLeft(cellView, linLayout);
+                            if (!isFinishing()) {
+                                addCellViewToLeft(cellView, linLayout);
                                 v.removeOnLayoutChangeListener(this);
                             }
                         }
@@ -332,17 +343,17 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
                     addCellViewToLeft(cellView, linLayout);
                 }
             }
-            final TranslateAnimation indicatorAnimation = new TranslateAnimation(0.0f, 0.0f, (float) this.lastTabPivotY, (float) (this.widgetMenuIndicator.getHeight() * index));
+            final TranslateAnimation indicatorAnimation = new TranslateAnimation(0.0f, 0.0f, (float) lastTabPivotY, (float) (widgetMenuIndicator.getHeight() * index));
             indicatorAnimation.setDuration(150);
             indicatorAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
             indicatorAnimation.setFillAfter(true);
-            this.widgetMenuIndicator.post(new Runnable() {
+            widgetMenuIndicator.post(new Runnable() {
                 public void run() {
-                    MainActivity.this.changeTabSelectState(index);
-                    MainActivity.this.widgetMenuIndicator.startAnimation(indicatorAnimation);
+                    changeTabSelectState(index);
+                    widgetMenuIndicator.startAnimation(indicatorAnimation);
                 }
             });
-            this.lastTabPivotY = this.widgetMenuIndicator.getHeight() * index;
+            lastTabPivotY = widgetMenuIndicator.getHeight() * index;
         }
     }
 
@@ -367,19 +378,21 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
         left_img_panelVisibility = (ImageView) findViewById(R.id.left_img_panel_visibility_img);
         cellLayout = (CellLayout) findViewById(R.id.panel_cell_layout);
 
-        this.widgetMenuIndicator = new ImageView(this);
-        this.widgetMenuIndicator.setImageResource(R.drawable.toolbox_bg);
+        widgetMenuIndicator = new ImageView(this);
+        widgetMenuIndicator.setImageResource(R.drawable.toolbox_bg);
 
 
         left_ani_rotate_clockwise = AnimationUtils.loadAnimation(this, R.anim.rotate45_clockwise);
         left_ani_rotate_anticlockwise = AnimationUtils.loadAnimation(this, R.anim.rotate45_anticlockwise);
-        this.left_linLayoutParams_group = new ActionBar.LayoutParams(-1, -2);
+        left_ani_rotate_clockwise.setFillAfter(true);
+        left_ani_rotate_anticlockwise.setFillAfter(true);
+        left_linLayoutParams_group = new ActionBar.LayoutParams(-1, -2);
         int margin = DeviceManager.getPercentHeightToPx(0.01f);
-        this.left_linLayoutParams_group.setMargins(margin, margin * 3, margin, 0);
-
-        if (this.currentMode == -1 || this.currentMode == 2) {
+        left_linLayoutParams_group.setMargins(margin, margin * 3, margin, 0);
+        DeviceManager.getDeviceInfo(this);
+        if (currentMode == -1 || currentMode == 2) {
             setModeToPlay();
-        } else if (this.currentMode == 1) {
+        } else if (currentMode == 1) {
             setModeToDesign();
         }
         loadCurrentProjectBean();
@@ -388,9 +401,9 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
     private void initEvent() {
         cellLayout.setCellLayoutListener(this);
-        this.cellLayout.setOnClickListener(new View.OnClickListener() {
+        cellLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                MainActivity.this.hideLeftPanel(true);
+                hideLeftPanel(true);
             }
         });
         cellLayout.setOnDragListener(cellLayout);
@@ -399,7 +412,6 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this, MainActivity.class));
                 if (currentMode == 1) {
                     setModeToPlay();
                 } else {
@@ -409,17 +421,18 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
         });
 
 
-        this.left_img_panelVisibility.setLayerType(1, null);
-        this.left_img_panelVisibility.setOnClickListener(new View.OnClickListener() {
+        left_img_panelVisibility.setLayerType(1, null);
+        left_img_panelVisibility.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.e(MainActivity.TAG, "left_img_panelVisibility");
-                if (!MainActivity.this.left_isShowing) {
-                    if (MainActivity.this.left_img_panelVisibility.getAnimation() == null) {
-                        MainActivity.this.hideLeftPanel(true);
-                    } else if (MainActivity.this.left_img_panelVisibility.getAnimation() != MainActivity.this.left_ani_rotate_anticlockwise) {
-                        MainActivity.this.hideLeftPanel(true);
-                    } else if (MainActivity.this.left_img_panelVisibility.getAnimation() != MainActivity.this.left_ani_rotate_clockwise) {
-                        MainActivity.this.showLeftPanel(true);
+                if (!left_isShowing) {
+                    if (left_img_panelVisibility.getAnimation() == null) {
+                        
+                        hideLeftPanel(true);
+                    } else if (left_img_panelVisibility.getAnimation() != left_ani_rotate_anticlockwise) {
+                        hideLeftPanel(true);
+                    } else if (left_img_panelVisibility.getAnimation() != left_ani_rotate_clockwise) {
+                        showLeftPanel(true);
                     }
                 }
             }
@@ -437,8 +450,8 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
     }
 
     private void setWidgetsDataListener() {
-        for (int i = 0; i < this.cellLayout.getChildCount(); i++) {
-            View widget = this.cellLayout.getChildAt(i);
+        for (int i = 0; i < cellLayout.getChildCount(); i++) {
+            View widget = cellLayout.getChildAt(i);
             if (widget instanceof CellView) {
                 ControllerManager.setCellViewListener((CellView) widget);
             }
@@ -446,8 +459,8 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
     }
 
     private void setWidgetsClickListener() {
-        for (int i = 0; i < this.cellLayout.getChildCount(); i++) {
-            this.cellLayout.getChildAt(i).setOnClickListener(this.clickListener_widgets);
+        for (int i = 0; i < cellLayout.getChildCount(); i++) {
+            cellLayout.getChildAt(i).setOnClickListener(clickListener_widgets);
         }
     }
 
@@ -477,11 +490,11 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
         data4.xPosition = 25;
         data4.yPosition = 10;
         data4.name = "抬起";
-        this.cellLayout.addCellView(WidgetFactory.createCellView(this, data, 1));
-        this.cellLayout.addCellView(WidgetFactory.createCellView(this, data1, 1));
-        this.cellLayout.addCellView(WidgetFactory.createCellView(this, data2, 1));
-        this.cellLayout.addCellView(WidgetFactory.createCellView(this, data3, 1));
-        this.cellLayout.addCellView(WidgetFactory.createCellView(this, data4, 1));
+        cellLayout.addCellView(WidgetFactory.createCellView(this, data, 1));
+        cellLayout.addCellView(WidgetFactory.createCellView(this, data1, 1));
+        cellLayout.addCellView(WidgetFactory.createCellView(this, data2, 1));
+        cellLayout.addCellView(WidgetFactory.createCellView(this, data3, 1));
+        cellLayout.addCellView(WidgetFactory.createCellView(this, data4, 1));
         widgetDatas = new ArrayList<>();
         widgetDatas.add(data);
         widgetDatas.add(data1);
@@ -494,12 +507,12 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
 
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        this.isEnterBlockly = savedInstanceState.getBoolean("isEnterBlockly");
+        isEnterBlockly = savedInstanceState.getBoolean("isEnterBlockly");
         super.onRestoreInstanceState(savedInstanceState);
     }
 
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putBoolean("isEnterBlockly", this.isEnterBlockly);
+        outState.putBoolean("isEnterBlockly", isEnterBlockly);
         super.onSaveInstanceState(outState);
     }
 
@@ -512,8 +525,8 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void dragFromExternal(final DragFromExternalEvent event) {
-        this.cellLayout.setCurrentDragCellView(event.cellView, true);
-        final Point size = this.cellLayout.getCellViewSize(event.cellView);
+        cellLayout.setCurrentDragCellView(event.cellView, true);
+        final Point size = cellLayout.getCellViewSize(event.cellView);
         event.cellView.startDrag(null, new View.DragShadowBuilder(event.cellView) {
             public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint) {
                 super.onProvideShadowMetrics(shadowSize, shadowTouchPoint);
@@ -524,7 +537,7 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
             }
 
             public void onDrawShadow(Canvas canvas) {
-                RectF showRectF = MainActivity.this.cellLayout.getCellViewShowRectF(event.cellView);
+                RectF showRectF = cellLayout.getCellViewShowRectF(event.cellView);
                 Bitmap bitmap = Bitmap.createBitmap(getView().getWidth(), getView().getHeight(), Bitmap.Config.ARGB_8888);
                 getView().draw(new Canvas(bitmap));
                 canvas.drawBitmap(bitmap, null, showRectF, null);
@@ -536,51 +549,51 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
     private void hideLeftPanel(boolean isWithAnimation) {
         boolean z;
-        float width = (float) this.left_linLayout_tabContainer.getWidth();
-        int step = (int) (width / ((float) this.count));
+        float width = (float) left_linLayout_tabContainer.getWidth();
+        int step = (int) (width / ((float) count));
         if (!isWithAnimation || width == 0.0f) {
             if (width == 0.0f) {
-                this.left_linLayout_tabContainer.setX(-0.31640625f * ((float) DeviceManager.SCREEN_WIDTH));
+                left_linLayout_tabContainer.setX(-0.31640625f * ((float) DeviceManager.SCREEN_WIDTH));
             } else {
-                this.left_linLayout_tabContainer.setX(-width);
+                left_linLayout_tabContainer.setX(-width);
             }
-            this.left_isShowing = false;
-            this.left_isHiding = false;
-            if (this.currentMode == 1) {
+            left_isShowing = false;
+            left_isHiding = false;
+            if (currentMode == 1) {
                 rotateAnticlockwiseLeftPanelVisiableButton();
             }
-        } else if (!this.left_isShowing) {
-            if (this.currentMode != 1) {
-                this.left_img_panelVisibility.clearAnimation();
-                this.left_img_panelVisibility.setVisibility(View.INVISIBLE);
+        } else if (!left_isShowing) {
+            if (currentMode != 1) {
+                left_img_panelVisibility.clearAnimation();
+                left_img_panelVisibility.setVisibility(View.GONE);
             }
-            float x = this.left_linLayout_tabContainer.getX();
+            float x = left_linLayout_tabContainer.getX();
             if (x + width > ((float) step)) {
-                this.left_isHiding = true;
-                this.left_linLayout_tabContainer.setX(x - (width / ((float) this.count)));
-                this.handler.sendEmptyMessageDelayed(103, (long) this.left_ani_delayedTime);
+                left_isHiding = true;
+                left_linLayout_tabContainer.setX(x - (width / ((float) count)));
+                handler.sendEmptyMessageDelayed(103, (long) left_ani_delayedTime);
             } else {
-                this.left_isShowing = false;
-                this.left_isHiding = false;
-                this.left_linLayout_tabContainer.setX(-width);
-                if (this.currentMode == 1) {
-                    this.left_img_panelVisibility.setVisibility(View.VISIBLE);
+                left_isShowing = false;
+                left_isHiding = false;
+                left_linLayout_tabContainer.setX(-width);
+                if (currentMode == 1) {
+                    left_img_panelVisibility.setVisibility(View.VISIBLE);
                     rotateAnticlockwiseLeftPanelVisiableButton();
                 }
             }
         } else {
             return;
         }
-        ImageView imageView = this.left_img_panelVisibility;
-        if (this.left_isHiding) {
+        ImageView imageView = left_img_panelVisibility;
+        if (left_isHiding) {
             z = false;
         } else {
             z = true;
         }
         imageView.setEnabled(z);
-//        for (int i = 0; i < this.nav_radioGroup.getChildCount(); i++) {
-//            View childAt = this.nav_radioGroup.getChildAt(i);
-//            if (this.left_isHiding) {
+//        for (int i = 0; i < nav_radioGroup.getChildCount(); i++) {
+//            View childAt = nav_radioGroup.getChildAt(i);
+//            if (left_isHiding) {
 //                z = false;
 //            } else {
 //                z = true;
@@ -592,42 +605,42 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
     private void showLeftPanel(boolean isWithAnimation) {
         boolean z;
-        int step = (int) (((float) this.left_linLayout_tabContainer.getWidth()) / ((float) this.count));
+        int step = (int) (((float) left_linLayout_tabContainer.getWidth()) / ((float) count));
         if (!isWithAnimation) {
-            this.left_isShowing = false;
-            this.left_isHiding = false;
-            this.left_linLayout_tabContainer.setX(0.0f);
-        } else if (!this.left_isHiding) {
-            float x = this.left_linLayout_tabContainer.getX();
+            left_isShowing = false;
+            left_isHiding = false;
+            left_linLayout_tabContainer.setX(0.0f);
+        } else if (!left_isHiding) {
+            float x = left_linLayout_tabContainer.getX();
             if (((float) step) + x < 0.0f) {
-                this.left_linLayout_tabContainer.setX(((float) step) + x);
-                this.handler.sendEmptyMessageDelayed(102, (long) this.left_ani_delayedTime);
-                this.left_isShowing = true;
-                if (this.currentMode == 1) {
-                    this.left_img_panelVisibility.setVisibility(View.VISIBLE);
+                left_linLayout_tabContainer.setX(((float) step) + x);
+                handler.sendEmptyMessageDelayed(102, (long) left_ani_delayedTime);
+                left_isShowing = true;
+                if (currentMode == 1) {
+                    left_img_panelVisibility.setVisibility(View.VISIBLE);
                     rotateClockwiseLeftPanelVisiableButton();
                 } else {
-                    this.left_img_panelVisibility.clearAnimation();
-                    this.left_img_panelVisibility.setVisibility(View.INVISIBLE);
+                    left_img_panelVisibility.clearAnimation();
+                    left_img_panelVisibility.setVisibility(View.GONE);
                 }
             } else {
-                this.left_linLayout_tabContainer.setX(0.0f);
-                this.left_isShowing = false;
-                this.left_isHiding = false;
+                left_linLayout_tabContainer.setX(0.0f);
+                left_isShowing = false;
+                left_isHiding = false;
             }
         } else {
             return;
         }
-        ImageView imageView = this.left_img_panelVisibility;
-        if (this.left_isShowing) {
+        ImageView imageView = left_img_panelVisibility;
+        if (left_isShowing) {
             z = false;
         } else {
             z = true;
         }
         imageView.setEnabled(z);
-//        for (int i = 0; i < this.nav_radioGroup.getChildCount(); i++) {
-//            View childAt = this.nav_radioGroup.getChildAt(i);
-//            if (this.left_isShowing) {
+//        for (int i = 0; i < nav_radioGroup.getChildCount(); i++) {
+//            View childAt = nav_radioGroup.getChildAt(i);
+//            if (left_isShowing) {
 //                z = false;
 //            } else {
 //                z = true;
@@ -638,29 +651,29 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
 
     private void rotateAnticlockwiseLeftPanelVisiableButton() {
-        if (this.left_img_panelVisibility.getAnimation() != this.left_ani_rotate_anticlockwise) {
-            this.left_img_panelVisibility.startAnimation(this.left_ani_rotate_anticlockwise);
+        if (left_img_panelVisibility.getAnimation() != left_ani_rotate_anticlockwise) {
+            left_img_panelVisibility.startAnimation(left_ani_rotate_anticlockwise);
         }
     }
 
     private void rotateClockwiseLeftPanelVisiableButton() {
-        if (this.left_img_panelVisibility.getAnimation() != this.left_ani_rotate_clockwise) {
-            this.left_img_panelVisibility.startAnimation(this.left_ani_rotate_clockwise);
+        if (left_img_panelVisibility.getAnimation() != left_ani_rotate_clockwise) {
+            left_img_panelVisibility.startAnimation(left_ani_rotate_clockwise);
         }
     }
 
 
     private void setModeToDesign() {
         Log.e(TAG, "setModeToDesign");
-        this.currentMode = 1;
-        this.left_img_panelVisibility.setVisibility(View.VISIBLE);
+        currentMode = 1;
+        left_img_panelVisibility.setVisibility(View.VISIBLE);
         BlocklyManager.getInstance().callWeb_exitPlayMode();
         showLeftPanel(true);
-        this.left_img_panelVisibility.setVisibility(View.VISIBLE);
-        this.cellLayout.setMode(2);
-        this.panel_img_grid.setSelected(false);
-//        if (!SharedPreferencesUtils.hasShowStartDesignGuide() && !this.designModeIsAlreadySet) {
-//            this.designModeIsAlreadySet = true;
+        left_img_panelVisibility.setVisibility(View.VISIBLE);
+        cellLayout.setMode(2);
+        panel_img_grid.setSelected(false);
+//        if (!SharedPreferencesUtils.hasShowStartDesignGuide() && !designModeIsAlreadySet) {
+//            designModeIsAlreadySet = true;
 //            final UserGuideDialog dialog = new UserGuideDialog(this, 16973834);
 //            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(-1442840576));
 //            new Handler().postDelayed(new Runnable() {
@@ -673,19 +686,19 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
     private void setModeToPlay() {
         Log.e(TAG, "setModeToPlay");
-        this.currentMode = 2;
-        this.left_img_panelVisibility.setVisibility(View.INVISIBLE);
+        currentMode = 2;
+        left_img_panelVisibility.setVisibility(View.GONE);
         BlocklyManager.getInstance().callWeb_enterPlayMode();
         hideLeftPanel(true);
-        this.left_img_panelVisibility.setVisibility(View.GONE);
-        this.cellLayout.setMode(1);
-        this.panel_img_grid.setSelected(true);
+        left_img_panelVisibility.setVisibility(View.INVISIBLE);
+        cellLayout.setMode(1);
+        panel_img_grid.setSelected(true);
     }
 
 
     private void changeTabSelectState(int selectedIndex) {
-        for (int i = 0; i < this.relative_layout_tab.getChildCount() - 1; i++) {
-            PercentRelativeLayout tabItemLayout = (PercentRelativeLayout) this.relative_layout_tab.getChildAt(i + 1);
+        for (int i = 0; i < relative_layout_tab.getChildCount() - 1; i++) {
+            PercentRelativeLayout tabItemLayout = (PercentRelativeLayout) relative_layout_tab.getChildAt(i + 1);
             ImageView icon = (ImageView) tabItemLayout.getChildAt(0);
             TextView iconText = (TextView) tabItemLayout.getChildAt(1);
             if (i == selectedIndex) {
@@ -700,7 +713,7 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
 
     private void addCellViewToLeft(CellView cellView, LinearLayout linLayout) {
-        RectF rectF = this.cellLayout.getCellViewShowRectF(cellView.getCellWidth(), cellView.getCellHeight());
+        RectF rectF = cellLayout.getCellViewShowRectF(cellView.getCellWidth(), cellView.getCellHeight());
         int width = (int) (((rectF.right - rectF.left) * 2.0f) / 3.0f);
         int height = (int) (((rectF.bottom - rectF.top) * 2.0f) / 3.0f);
         if (cellView instanceof ChartLayout) {
@@ -756,10 +769,10 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
 
     private void widgetAdd(CellView cellView) {
         WidgetData widgetData = cellView.getWidgetData();
-        this.currentProjectBean.getWidgets().add(widgetData);
+        currentProjectBean.getWidgets().add(widgetData);
         int widgetID = 0;
-        for (int i = 0; i < this.currentProjectBean.getWidgets().size(); i++) {
-            widgetID = Math.max(((WidgetData) this.currentProjectBean.getWidgets().get(i)).widgetID, widgetID);
+        for (int i = 0; i < currentProjectBean.getWidgets().size(); i++) {
+            widgetID = Math.max(((WidgetData) currentProjectBean.getWidgets().get(i)).widgetID, widgetID);
         }
         widgetData.widgetID = widgetID + 1;
     }
