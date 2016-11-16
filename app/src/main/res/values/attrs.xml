@@ -36,4 +36,32 @@
             <flag name="value" value="4"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="CircleProgressView">
+        <attr name="circleColor">
+            <flag name="circleColor" value="16"/>
+            </attr>
+        <attr name="circleProgressColor">
+            <flag name="circleProgressColor" value="16"/>
+        </attr>
+        <attr name="circleWidthPercent">
+            <flag name="circleWidthPercent" value="2"/>
+        </attr>
+        <attr name="textColor">
+            <flag name="textColor" value="16"/>
+        </attr>
+        <attr name="maxValue">
+            <flag name="maxValue" value="4"/>
+        </attr>
+        <attr name="progress">
+            <flag name="progress" value="32"/>
+        </attr>
+        <attr name="startAngle">
+            <flag name="startAngle" value="4"/>
+        </attr>
+        <attr name="finishAngle">
+            <flag name="finishAngle" value="4"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

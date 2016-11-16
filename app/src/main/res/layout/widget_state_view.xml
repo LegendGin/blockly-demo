@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout app:background="@drawable/bg"
+                                               app:layout_height="match_parent"
+                                               app:layout_width="match_parent"
+                                               xmlns:android="http://schemas.android.com/apk/res-auto"
+                                               xmlns:app="http://schemas.android.com/apk/res/android">
+
+    <com.gin.blockly_demo.FitHeightTextView
+        app:gravity="left|right|center_horizontal|fill_horizontal|center|fill|start|end"
+        app:id="@+id/tv_title"
+        app:includeFontPadding="false"
+        app:layout_alignParentLeft="true"
+        app:layout_height="wrap_content"
+        android:layout_heightPercent="20.8%"
+        android:layout_marginLeftPercent="8.3%"
+        android:layout_marginRightPercent="8.3%"
+        android:layout_marginTopPercent="8.3%"
+        app:layout_width="match_parent"
+        app:maxLines="1"
+        app:text="开关指示"
+        app:textColor="@android:color/black"
+        app:textSize="100sp"/>
+
+    <android.support.percent.PercentRelativeLayout
+        app:id="@+id/layout_bg"
+        app:layout_alignParentBottom="true"
+        app:layout_below="@+id/tv_title"
+        app:layout_centerHorizontal="true"
+        app:layout_height="match_parent"
+        android:layout_marginBottomPercent="10%"
+        android:layout_marginTopPercent="10%"
+        app:layout_width="match_parent">
+
+        <ImageView
+            app:id="@+id/img_icon"
+            app:layout_centerInParent="true"
+            app:layout_height="match_parent"
+            app:layout_width="match_parent"
+            app:src="@drawable/sel_wig_state_btn"/>
+
+        <com.gin.blockly_demo.AutoResizeTextView
+            app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+            app:id="@+id/tv_off"
+            app:includeFontPadding="false"
+            app:layout_centerInParent="true"
+            app:layout_height="wrap_content"
+            android:layout_heightPercent="40%"
+            app:layout_width="wrap_content"
+            android:layout_widthPercent="40%"
+            app:maxLines="1"
+            app:text="OFF"
+            app:textColor="@android:color/white"
+            app:textSize="100sp"
+            app:textStyle="bold"/>
+
+        <com.gin.blockly_demo.AutoResizeTextView
+            app:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+            app:id="@+id/tv_on"
+            app:includeFontPadding="false"
+            app:layout_centerInParent="true"
+            app:layout_height="wrap_content"
+            android:layout_heightPercent="40%"
+            app:layout_width="wrap_content"
+            android:layout_widthPercent="40%"
+            app:maxLines="1"
+            app:text="ON"
+            app:textColor="@android:color/white"
+            app:textSize="100sp"
+            app:textStyle="bold"/>
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

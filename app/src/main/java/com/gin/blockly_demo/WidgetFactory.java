@@ -45,31 +45,31 @@ public class WidgetFactory {
             cellView.setCellWidth(5.0f);
             cellView.setCellHeight(3.0f);
         }
-//        if (xibName.equals(EnumXibName.MBWNumberDisplay.toString())) {
-//            cellView = new ValueView(context);
-//            cellView.setCellWidth(5.0f);
-//            cellView.setCellHeight(3.0f);
-//        }
+        if (xibName.equals(EnumXibName.MBWNumberDisplay.toString())) {
+            cellView = new ValueView(context);
+            cellView.setCellWidth(5.0f);
+            cellView.setCellHeight(3.0f);
+        }
         if (xibName.equals(EnumXibName.MBWLineGraph.toString())) {
             cellView = new ChartLayout(context);
             cellView.setCellWidth(10.0f);
             cellView.setCellHeight(7.0f);
         }
-//        if (xibName.equals(EnumXibName.MBWBarDisplay.toString())) {
-//            cellView = new ValueViewWithProgress(context);
-//            cellView.setCellWidth(5.0f);
-//            cellView.setCellHeight(6.0f);
-//            if (type == 0) {
-//                ((ValueViewWithProgress) cellView).setProgress(0.0f);
-//            } else {
-//                ((ValueViewWithProgress) cellView).setProgress(0.0f);
-//            }
-//        }
-//        if (xibName.equals(EnumXibName.MBWIndicator.toString())) {
-//            cellView = new StateView(context);
-//            cellView.setCellWidth(3.0f);
-//            cellView.setCellHeight(3.0f);
-//        }
+        if (xibName.equals(EnumXibName.MBWBarDisplay.toString())) {
+            cellView = new ValueViewWithProgress(context);
+            cellView.setCellWidth(5.0f);
+            cellView.setCellHeight(6.0f);
+            if (type == 0) {
+                ((ValueViewWithProgress) cellView).setProgress(0.0f);
+            } else {
+                ((ValueViewWithProgress) cellView).setProgress(0.0f);
+            }
+        }
+        if (xibName.equals(EnumXibName.MBWIndicator.toString())) {
+            cellView = new StateView(context);
+            cellView.setCellWidth(3.0f);
+            cellView.setCellHeight(3.0f);
+        }
         if (xibName.equals(EnumXibName.MBWSlider.toString())) {
             cellView = new SliderHorizontal(context);
             cellView.setCellWidth(10.0f);

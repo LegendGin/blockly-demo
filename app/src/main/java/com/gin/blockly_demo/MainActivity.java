@@ -288,6 +288,15 @@ public class MainActivity extends AppCompatActivity implements CellLayout.CellLa
                 widgetDatas.add(new WidgetData("运动", bean4));
                 break;
             case 1:
+                WidgetBean bean5 = new WidgetBean();
+                bean5.className = EnumXibName.MBWNumberDisplay.toString();
+                WidgetBean bean6 = new WidgetBean();
+                bean6.className = EnumXibName.MBWLineGraph.toString();
+                WidgetBean bean7 = new WidgetBean();
+                bean7.className = EnumXibName.MBWIndicator.toString();
+                widgetDatas.add(new WidgetData("感知", bean5));
+                widgetDatas.add(new WidgetData("感知", bean6));
+                widgetDatas.add(new WidgetData("感知", bean7));
                 break;
             case 2:
                 break;

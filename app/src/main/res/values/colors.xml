@@ -6,4 +6,6 @@
     <color name="cell_shadow_color">#08000000</color>
     <color name="panel_play_bg">#ffeaeaea</color>
     <color name="color_text_left_tab">#303F9F</color>
+    <color name="circle_color">#ffd5d5d5</color>
+    <color name="circle_progress_color">#fffdcb35</color>
 </resources>
